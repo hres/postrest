@@ -19,7 +19,7 @@ echo "Category: <select name='searchcategories'>";
         	  echo "<option value=$col>$col</option>";
 	        }
 	echo "</select>";
-	
+//	
 // Query the DB to see what fields are available and setup what field to serach in
 //echo "Search in: <select name='searchin'>";
 //	  $querycolumns_prepare = mysqli_stmt_init($dbhandle);
