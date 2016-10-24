@@ -15,9 +15,9 @@ echo "Category: <select name='searchcategories'>";
 	mysqli_stmt_execute($querycategories_prepare);
 	mysqli_stmt_bind_result($querycategories_prepare,$col);
 		
-//		while(mysqli_stmt_fetch($querycategories_prepare)){
-//        	  echo "<option value=$col>$col</option>";
-//	        }
+		while(mysqli_stmt_fetch($querycategories_prepare)){
+        	  echo "<option value=$col>$col</option>";
+	        }
 	echo "</select>";
 	
 // Query the DB to see what fields are available and setup what field to serach in
