@@ -11,7 +11,6 @@ $dbhandle = mysqli_connect($config['hostname'], $config['username'], $config['pa
 echo "Category: <select name='searchcategories'>";
 	$querycategories_prepare = mysqli_stmt_init($dbhandle);
 	mysqli_stmt_prepare($querycategories_prepare, "SELECT `HeaderE` FROM `Categories`;");
-	mysqli_stmt_bind_param($querycategories_prepare, "ss", $config['dbname'], $config['Categories']);
 	mysqli_stmt_execute($querycategories_prepare);
 	mysqli_stmt_bind_result($querycategories_prepare,$col);
 		
@@ -19,6 +18,7 @@ echo "Category: <select name='searchcategories'>";
         	  echo "<option value=$col>$col</option>";
 	        }
 	echo "</select>";
+exit;
 //	
 // Query the DB to see what fields are available and setup what field to serach in
 //echo "Search in: <select name='searchin'>";
