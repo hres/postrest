@@ -10,7 +10,7 @@ $dbhandle = mysqli_connect($config['hostname'], $config['username'], $config['pa
 	//<p> To view the list of companies and their products, please select a category and a sub-category. </p>
 echo "Category: <select name='searchcategories'>";
 	$querycategories_prepare = mysqli_stmt_init($dbhandle);
-	mysqli_stmt_prepare($querycategories_prepare, "SELECT `CategoryID`, `HeaderE`, `HeaderF`,  FROM `Categories`;");
+	mysqli_stmt_prepare($querycategories_prepare, "SELECT `CategoryID`, `HeaderE`, `HeaderF` FROM `Categories`;");
 	mysqli_stmt_execute($querycategories_prepare);
 	mysqli_stmt_bind_result($querycategories_prepare,$col1,$col2,$col3);
 //insert an if statement here for french
