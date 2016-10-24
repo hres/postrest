@@ -6,7 +6,20 @@
 $config = parse_ini_file('./db.ini');
 //connection to the Server
 $dbhandle = mysqli_connect($config['hostname'], $config['username'], $config['password'],$config['dbname']) or die("Unable to connect to Server");
-
+// Create dropdown for Categories
+	<p> To view the list of companies and their products, please select a category and a sub-category. </p>
+		echo " <select name='categories'>";
+		$querycategories_prepare = mysqli_stmt_init($dbhandle);
+		mysqli_stmt_prepare($querycategories_prepare, "SELECT `HeaderE` FROM `Categories`");
+		mysqli_stmt_bind_param($querycategories_prepare, "ss", $config['dbname'], $config['categories'];
+		mysqli_stmt_execute($querycategories_prepare);
+		mysqli_stmt_bind_result($querycategories_prepare,$col);
+			
+			while(mysqli_stmt_fetch($querycategories_prepare)){
+              	echo "<option value=$col>$col</option>";
+              }
+	echo "</select>";
+	
 // Query the DB to see what fields are available and setup what field to serach in
 echo "Search in: <select name='searchin'>";
 	  $querycolumns_prepare = mysqli_stmt_init($dbhandle);
