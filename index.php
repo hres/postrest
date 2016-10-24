@@ -14,14 +14,13 @@ echo "Category: <select name='searchcategories'>";
 	mysqli_stmt_execute($querycategories_prepare);
 	mysqli_stmt_bind_result($querycategories_prepare,$col1,$col2,$col3);
 //insert an if statement here for french
+//if english then col2 if french then col3  
 	
 		while(mysqli_stmt_fetch($querycategories_prepare)){
         	  echo "<option value=$col1>$col2</option>";
 		}
 	echo "</select>";
-	while (mysqli_stmt_fetch($querycategories_prepare)) {
-        printf("%s %s\n", $col1, $col2);
-	   }
+	echo "$col1,$col2";
 exit;
 //	
 // Query the DB to see what fields are available and setup what field to serach in
