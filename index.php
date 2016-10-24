@@ -20,7 +20,7 @@ echo "Category: <select name='searchcategories'>";
         	  echo "<option value=$col1>$col2</option>";
 		}
 	echo "</select>";
-	echo "$col1,$col2";
+
 exit;
 //	
 // Query the DB to see what fields are available and setup what field to serach in
