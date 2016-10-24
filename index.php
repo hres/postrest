@@ -21,19 +21,19 @@ echo "Category: <select name='searchcategories'>";
 	echo "</select>";
 	
 // Query the DB to see what fields are available and setup what field to serach in
-echo "Search in: <select name='searchin'>";
-	  $querycolumns_prepare = mysqli_stmt_init($dbhandle);
-	  mysqli_stmt_prepare($querycolumns_prepare, "SELECT `COLUMN_NAME` FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`=? AND `TABLE_NAME`=?;");
- 	  mysqli_stmt_bind_param($querycolumns_prepare, "ss", $config['dbname'], $config['tablename']);
-	  mysqli_stmt_execute($querycolumns_prepare);
-	  mysqli_stmt_bind_result($querycolumns_prepare,$col);
-		
-              while(mysqli_stmt_fetch($querycolumns_prepare)){
-              	echo "<option value=$col>$col</option>";
-              }
+//echo "Search in: <select name='searchin'>";
+//	  $querycolumns_prepare = mysqli_stmt_init($dbhandle);
+//	  mysqli_stmt_prepare($querycolumns_prepare, "SELECT `COLUMN_NAME` FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`=? AND `TABLE_NAME`=?;");
+// 	  mysqli_stmt_bind_param($querycolumns_prepare, "ss", $config['dbname'], $config['tablename']);
+//	  mysqli_stmt_execute($querycolumns_prepare);
+//	  mysqli_stmt_bind_result($querycolumns_prepare,$col);
+//		
+//              while(mysqli_stmt_fetch($querycolumns_prepare)){
+//              	echo "<option value=$col>$col</option>";
+//              }
 		//mysqli_stmt_close($querycolumns_prepare); //dont close until we reused down below
 		//mysqli_close($dbhandle);//close at end of page, saves you from having to keep opening
-echo "</select>";
+//echo "</select>";
 // Ask the User what value to look for in the above selected 
 echo "for values that ";
 echo '<select name="type">';
