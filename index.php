@@ -1,3 +1,5 @@
+<a href="http://www.inspection.gc.ca/active/scripts/fssa/reference/reference.asp?lang=e> Link </a>
+
 <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
 <?php 
 //replacement for include
