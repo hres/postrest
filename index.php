@@ -22,7 +22,7 @@ echo "Category: <select name='searchcategories'>";
 	echo "</select>";
 echo "Sub-Category: <select name='searchsubcategories'>";
 	$querysubcategories_prepare = mysqli_stmt_init($dbhandle);
-	mysqli_stmt_prepare($querysubcategories_prepare, "SELECT * FROM `SubCategories`;");
+	mysqli_stmt_prepare($querysubcategories_prepare, "SELECT * FROM `SubCategories` WHERE `CategoryID`=$searchcategories;");
 	mysqli_stmt_execute($querysubcategories_prepare);
 	mysqli_stmt_bind_result($querysubcategories_prepare,$col1,$col2,$col3,$col4,$col5,$col6,$col7,$col8,$col9,$col10);
 //insert an if statement here for french
