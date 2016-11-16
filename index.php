@@ -29,7 +29,7 @@ echo "Sub-Category: <select name='searchsubcategories'>";
 //if english then col2 if french then col3  
 	
 		while(mysqli_stmt_fetch($querysubcategories_prepare)){
-        	  echo "<option value=$col1>$col3 & $col2</option>";
+        	  echo "<option value=$col1>$col3 ($col2)</option>";
 		}
 	echo "</select>";
 mysqli_close($dbhandle); //close the connection
