@@ -5,10 +5,15 @@ if(!empty($_POST["CategoryID"])) {
 	$results = $dbhandle->query($query);
 	mysqli_stmt_bind_result($results,$col1,$col2,$col3,$col4,$col5,$col6,$col7,$col8,$col9,$col10);
 ?>
-	<option value="">Select Category</option>
+	<option value="">Select a Category</option>
 <?php
 	while(mysqli_stmt_fetch($results)){
 		  echo "<option value=$col1>$col3 ($col2)</option>";
 	}
-	foreach($results as $subCategory) {
+		foreach($results as $subCategory) {
+?>
+	<option value="<?php echo $subCategory["CategoryID"]; ?>"><?php echo $subCategory["name"]; ?></option>
+<?php
+	}
+}
 ?>
