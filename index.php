@@ -23,7 +23,7 @@
 		mysqli_close($dbhandle);
 	?>
 	<?php
-		echo "<H1>$searchcategories</H1>";
+		echo $_GET['searchcategories'.$row['value']];
 	?>
 	</select>
 	Sub-Category: 
