@@ -23,7 +23,7 @@
 	</select>
 	Sub-Category: 
 	<select name="searchsubcategories" id="searchsubcategories">
-
+		<option value="0">Select a Category</option>
 	</select>
 </form>
 
