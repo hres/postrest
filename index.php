@@ -33,6 +33,7 @@
 	?>
 	<?php
 		echo $_GET['searchcategories'.$row['value']];
+		echo "$_POST['searchcategories']";
 	?>
 	</select>
 	Sub-Category: 
