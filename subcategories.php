@@ -1,4 +1,5 @@
 <?php
+$config = parse_ini_file('./db.ini');
 $dbhandle1 = mysqli_connect($config['hostname'], $config['username'], $config['password'],$config['dbname']) or die("Unable to connect to Server");
 $choice = mysql_real_escape_string($_GET['choice']);
 $choice2 = $_SERVER['QUERY_STRING']
