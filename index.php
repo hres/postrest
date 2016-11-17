@@ -31,7 +31,7 @@
 function getSubCategory(val) {
 	$.ajax({
 	type: "POST",
-	url: "index.php",
+	url: "subcategories.php",
 	data:'CategoryID='+val,
 	success: function(data){
 		$("#searchsubcategories").html(data);
@@ -39,19 +39,3 @@ function getSubCategory(val) {
 	});
 }
 </script>
-
-<?php
-
-if(!empty($_POST["CategoryID"])) {
-	$query ="SELECT * FROM `SubCategories` WHERE CategoryID = '" . $_POST["CategoryID"] . "'";
-	$results = $dbhandle->runQuery($query);
-?>
-	<option value="">Select Category</option>
-<?php
-	foreach($results as $subCategory) {
-?>
-	<option value="<?php echo $subCategory["CategoryID"]; ?>"><?php echo $subCategory["name"]; ?></option>
-<?php
-	}
-}
-?>
