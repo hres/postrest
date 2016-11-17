@@ -47,7 +47,7 @@ function getSubCategory(val) {
 	{
 		$("#searchcategories").change(function()
 		{
-			$("#searchsubcategories").load("subcategories.php?choice=" + $("#searchcategories").val());
+			$("#searchsubcategories").load("subcategories.php?choice=" + $("#searchcategories").value);
 		});
 	});
 </script>
