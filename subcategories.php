@@ -10,10 +10,4 @@ if(!empty($_POST["CategoryID"])) {
 	while(mysqli_stmt_fetch($results)){
 		  echo "<option value=$col1>$col3 ($col2)</option>";
 	}
-		foreach($results as $subCategory) {
-?>
-	<option value="<?php echo $subCategory["CategoryID"]; ?>"><?php echo $subCategory["name"]; ?></option>
-<?php
-	}
-}
 ?>
