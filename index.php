@@ -16,7 +16,7 @@
 	//connection to the Server
 	$dbhandle = mysqli_connect($config['hostname'], $config['username'], $config['password'],$config['dbname']) or die("Unable to connect to Server");
 ?>
-<form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+<form method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
 	Category: 
 	<select name="searchcategories" id="searchcategories">
 	<?php
@@ -34,6 +34,7 @@
 	<?php
 		echo $_GET['searchcategories'.$row['value']];
 		echo $_POST['searchcategories'];
+		echo $_POST['searchcategories'/$row['value']];
 	?>
 	</select>
 	Sub-Category: 
