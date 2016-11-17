@@ -9,7 +9,7 @@
 ?>
 <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
 	Category: 
-	<select name="searchcategories" id="searchcategories" onChange="getSubCategory(this.value);">
+	<select name="searchcategories" id="searchcategories">
 	<?php
 		$querycategories_prepare = mysqli_stmt_init($dbhandle);
 		mysqli_stmt_prepare($querycategories_prepare, "SELECT * FROM `Categories`;");
@@ -23,10 +23,11 @@
 	</select>
 	Sub-Category: 
 	<select name="searchsubcategories" id="searchsubcategories">
-		<option value="0">Select a Category</option>
+
 	</select>
 </form>
 
+<!--
 <script>
 function getSubCategory(val) {
 	$.ajax({
@@ -38,4 +39,15 @@ function getSubCategory(val) {
 	}
 	});
 }
+</script>
+-->
+
+<script type="text/javascript">
+	$(document).ready(function()
+	{
+		$("#searchcategories").change(function()
+		{
+			$("#searchsubcategories").load("subcategories.php?choice=" + $("#searchcategories").val());
+		});
+	});
 </script>
