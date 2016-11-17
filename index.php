@@ -18,7 +18,7 @@
 ?>
 <form method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
 	Category: 
-	<select name="searchcategories" id="searchcategories">
+	<select name="searchcategories" id="searchcategories" value="0">
 	<?php
 		$querycategories_prepare = mysqli_stmt_init($dbhandle);
 		mysqli_stmt_prepare($querycategories_prepare, "SELECT * FROM `Categories`;");
