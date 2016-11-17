@@ -1,6 +1,15 @@
 <a href="http://www.inspection.gc.ca/active/scripts/fssa/reference/reference.asp?lang=e"> Link </a>
 <a href="http://www.codexworld.com/dynamic-dependent-select-box-using-jquery-ajax-php/"> jquery</a>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function()
+	{
+		$("#searchcategories").change(function()
+		{
+			$("#searchsubcategories").load("subcategories.php?choice=" + $("#searchcategories").value);
+		});
+	});
+</script>
 <?php
 	//replacement for include
 	$config = parse_ini_file('./db.ini');
@@ -49,12 +58,4 @@ function getSubCategory(val) {
 </script>
 -->
 
-<script type="text/javascript">
-	$(document).ready(function()
-	{
-		$("#searchcategories").change(function()
-		{
-			$("#searchsubcategories").load("subcategories.php?choice=" + $("#searchcategories").value);
-		});
-	});
-</script>
+
