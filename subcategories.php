@@ -1,6 +1,7 @@
 <?php
 $dbhandle1 = mysqli_connect($config['hostname'], $config['username'], $config['password'],$config['dbname']) or die("Unable to connect to Server");
 $choice = mysql_real_escape_string($_GET['choice']);
+echo "<H11>$choice</H1>";
 
 $querysubcategories_prepare = mysqli_stmt_init($dbhandle1);
 	mysqli_stmt_prepare($querysubcategories_prepare, "SELECT * FROM `SubCategories` WHERE CategoryID='$choice'");
