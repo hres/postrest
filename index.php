@@ -38,7 +38,7 @@
 		echo "<H1>Hello</H1>";
 	?>
 	</select>
-	Sub-Category: 
+	Sub-Category BLAH: 
 	<select name="searchsubcategories" id="searchsubcategories">
 
 	</select>
