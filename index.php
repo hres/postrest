@@ -25,6 +25,8 @@
 	<select name="searchsubcategories" id="searchsubcategories">
 
 	</select>
+	
+	mysqli_close($dbhandle);
 </form>
 
 <!--
