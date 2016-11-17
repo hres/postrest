@@ -19,6 +19,8 @@
 		while(mysqli_stmt_fetch($querycategories_prepare)){
 			  echo "<option value=$col1>$col2</option>";
 		}
+		
+		mysqli_close($dbhandle);
 	?>
 	</select>
 	Sub-Category: 
@@ -26,7 +28,7 @@
 
 	</select>
 	
-	mysqli_close($dbhandle);
+	
 </form>
 
 <!--
