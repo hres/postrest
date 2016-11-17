@@ -16,7 +16,7 @@ $querysubcategories_prepare = mysqli_stmt_init($dbhandle1);
 	while(mysqli_stmt_fetch($querysubcategories_prepare)){
 	  echo "<option value=$col1>$col3 ($col2)</option>";
 	}
-<!--
+/*
 $query = "SELECT * FROM `SubCategories` WHERE CategoryID='$choice'";
 	
 	$results = $dbhandle->query($query);
@@ -25,6 +25,6 @@ $query = "SELECT * FROM `SubCategories` WHERE CategoryID='$choice'";
 		  echo "<option value=$col1>$col3 ($col2)</option>";
 	}
 
--->
+*/
 	mysqli_close($dbhandle1);
 ?>
