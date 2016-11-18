@@ -21,7 +21,7 @@ select option{
     font-size: 14px;
 }
 </style>
-<script src="jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
     $('#country').on('change',function(){
