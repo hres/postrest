@@ -1,26 +1,5 @@
-<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<style type="text/css">
-.select-boxes{width: 280px;text-align: center;}
-select {
-    background-color: #F5F5F5;
-    border: 1px double #FB4314;
-    color: #55BB91;
-    font-family: Georgia;
-    font-weight: bold;
-    font-size: 14px;
-    height: 39px;
-    padding: 7px 8px;
-    width: 250px;
-    outline: none;
-    margin: 10px 0 10px 0;
-}
-select option{
-    font-family: Georgia;
-    font-size: 14px;
-}
-</style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
