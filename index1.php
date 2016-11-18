@@ -42,11 +42,38 @@ $(document).ready(function(){
 <body>
     <div class="select-boxes">
     <?php
-    //Include database configuration file
-    include('dbConfig.php');
+	$config = parse_ini_file('./db.ini');
+	//connection to the Server
+	$dbhandle = mysqli_connect($config['hostname'], $config['username'], $config['password'],$config['dbname']) or die("Unable to connect to Server");
+        
+<form method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+	Category: 
+	<select name="searchcategories" id="searchcategories" value="0">
+		$querycategories_prepare = mysqli_stmt_init($dbhandle);
+		mysqli_stmt_prepare($querycategories_prepare, "SELECT * FROM `Categories`;");
+		mysqli_stmt_execute($querycategories_prepare);
+		mysqli_stmt_bind_result($querycategories_prepare,$col1,$col2,$col3,$col4,$col5,$col6);
+		
+		while(mysqli_stmt_fetch($querycategories_prepare)){
+			  echo "<option value=$col1>$col2</option>";
+		}
+				
+	</select>
+        
+        
+    //Get all category data
+	<select name="searchcategories" id="searchcategories" value="0">
+		$querycategories_prepare = mysqli_stmt_init($dbhandle);
+		mysqli_stmt_prepare($querycategories_prepare, "SELECT * FROM `Categories`;");
+		mysqli_stmt_execute($querycategories_prepare);
+		mysqli_stmt_bind_result($querycategories_prepare,$col1,$col2,$col3,$col4,$col5,$col6);
+		
+		while(mysqli_stmt_fetch($querycategories_prepare)){
+			  echo "<option value=$col1>$col2</option>";
+		}
+				
+	</select>
     
-    //Get all country data
-    $query = $db->query("SELECT * FROM countries WHERE status = 1 ORDER BY country_name ASC");
     
     //Count total number of rows
     $rowCount = $query->num_rows;
