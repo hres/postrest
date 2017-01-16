@@ -9,4 +9,8 @@ if ($dbhandle->connect_error) {
     die("Connection failed: " . $dbhandle->connect_error);
 } 
 echo "Connected successfully<br /><br />";
+
+$sql = "SHOW TABLES FROM dbname";
+$result = mysql_query($sql);
+
 ?>
