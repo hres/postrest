@@ -8,9 +8,20 @@ $config = parse_ini_file('./db.ini');
 if ($dbhandle->connect_error) {
     die("Connection failed: " . $dbhandle->connect_error);
 } 
-echo "Connected successfully<br /><br />";
+echo "Connected successfully1<br /><br />";
 
-$sql = "SHOW TABLES FROM dbname";
-$result = mysql_query($sql);
+function get_active_db(){
+
+    $sql='SELECT DATABASE()';
+
+    $sqlresult=mysql_query($sql);
+
+    $row=mysql_fetch_row($sqlresult);
+
+    $active_db=$row[0];
+
+    echo "Active Database :<b> $active_db</b> ";
+
+    }
 
 ?>
