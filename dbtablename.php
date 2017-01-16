@@ -8,7 +8,9 @@ $config = parse_ini_file('./db.ini');
 if ($dbhandle->connect_error) {
     die("Connection failed: " . $dbhandle->connect_error);
 } 
-echo "Connected successfully1<br /><br />";
+echo "Connected successfully<br /><br />";
+
+get_active_db();
 
 function get_active_db(){
 
