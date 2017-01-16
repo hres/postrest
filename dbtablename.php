@@ -5,7 +5,8 @@ $config = parse_ini_file('./db.ini');
 	$dbhandle = mysqli_connect($config['hostname'], $config['username'], $config['password'],$config['dbname']) or die("Unable to connect to Server");
 
 
-$sql = "SHOW TABLES FROM $dbname";
-$result = mysql_query($sql);
-
+if ($dbhandle->connect_error) {
+    die("Connection failed: " . $dbhandle->connect_error);
+} 
+echo "Connected successfully<br /><br />";
 ?>
