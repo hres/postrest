@@ -57,7 +57,7 @@ table,td,th
 <p>
 <?php
 //Include database configuration file
-include('config.php');
+include('./config.php');
 if ($db->connect_error) {
     die("Connection failed: " . $db->connect_error);
 } 
