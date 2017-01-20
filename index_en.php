@@ -57,10 +57,10 @@ table,td,th
 <p>
 <?php
 //Include database configuration file
-	//replacement for include
 $config = parse_ini_file('./db.ini');
-//$db=new	mysqli($config['hostname'], $config['username'], $config['password'], $config['dbname']);
-$db=new	mysqli_connect($config['hostname'], $config['username'], $config['password'], $config['dbname']);	
+	//connection to the Server
+	$db = mysqli_connect($config['hostname'], $config['username'], $config['password'],$config['dbname']) or die("Unable to connect to Server");
+
 	
 if (mysqli_connect_errno()) {
     printf("Connect failed: %s\n", mysqli_connect_error());
