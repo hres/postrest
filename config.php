@@ -1,8 +1,9 @@
 <?php
-$host="localhost";
-$username="root";
-$password="123456";
-$databasename="acceptedlist";
+$config = parse_ini_file('./db.ini');
+$host=$config['hostname'];
+$username=$config['username'];
+$password=$config['password'];
+$databasename=$config['dbname'];
 $connect=mysql_connect($host,$username,$password);
 $db=mysql_select_db($databasename);
 
@@ -12,7 +13,5 @@ $db = new mysqli($host, $username, $password, $databasename);
 if ($db->connect_error) {
     die("Connection failed: " . $db->connect_error);
 }
-
-
 
 ?>
