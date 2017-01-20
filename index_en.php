@@ -66,7 +66,7 @@ if (mysqli_connect_errno()) {
     printf("Connect failed: %s\n", mysqli_connect_error());
     exit();
 }
-	else { printf("connected Procedural style");}
+	else { printf("connected Procedural style2");}
 	
 $db = new mysqli($config['hostname'], $config['username'], $config['password'],$config['dbname']);
 	if ($db->connect_errno) {
@@ -74,7 +74,7 @@ $db = new mysqli($config['hostname'], $config['username'], $config['password'],$
     exit();
 }
 	
-	else { printf("connected-object orien");}
+	else { printf("connected-object orien2");}
 	
 if ($result = $db->query("SELECT HeaderE FROM categories LIMIT 10")) {
     printf("Select returned %d rows.\n", $result->num_rows);
@@ -82,7 +82,7 @@ if ($result = $db->query("SELECT HeaderE FROM categories LIMIT 10")) {
     /* free result set */
     $result->close();
 }
-	else { printf("<br />unable to connnect to category table");}
+	else { printf("<br />unable to connnect to category table2");}
 	
 //Get all country data
 $query = $db->query("SELECT * FROM categories");
