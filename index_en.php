@@ -66,7 +66,7 @@ if ($db->connect_error) {
     echo "error";	
 } 
 	else{
-echo "Connected successfully6<br /><br />";}
+echo "Connected successfully7<br /><br />";}
 //Get all country data
 $query = $db->query("SELECT * FROM categories");
 	
