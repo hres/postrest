@@ -57,7 +57,8 @@ table,td,th
 <p>
 <?php
 //Include database configuration file
-include('config.php');
+$config = parse_ini_file('./db.ini');
+$db=new	mysqli($config['hostname'], $config['username'], $config['password'], $config['dbname']);
 
 //Get all country data
 $query = $db->query("SELECT * FROM categories ORDER BY HeaderE ASC");
