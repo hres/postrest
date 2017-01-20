@@ -62,9 +62,9 @@ $db=new	mysqli($config['hostname'], $config['username'], $config['password'], $c
 if ($db->connect_error) {
     die("Connection failed: " . $db->connect_error);
 } 
-echo "Connected successfully1<br /><br />";
+echo "Connected successfully2<br /><br />";
 //Get all country data
-$query = $db->query("SELECT * FROM 'categories' ORDER BY 'HeaderE' ASC");
+$query = $db->query("SELECT * FROM categories");
 
 //Count total number of rows
 $rowCount = $query->num_rows;
