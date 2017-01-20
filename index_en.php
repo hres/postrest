@@ -59,14 +59,13 @@ table,td,th
 //Include database configuration file
 	//replacement for include
 $config = parse_ini_file('./db.ini');
-$db=new	mysqli($config['hostname'], $config['username'], $config['password'], $config['dbname']);
+//$db=new	mysqli($config['hostname'], $config['username'], $config['password'], $config['dbname']);
+$db=new	mysqli_connect($config['hostname'], $config['username'], $config['password'], $config['dbname']);	
 	
-if ($db->connect_error) {
-    die("Connection failed: " . $db->connect_error);
-    echo "error";	
-} 
-	else{
-echo "Connected successfully7<br /><br />";}
+if (mysqli_connect_errno()) {
+    printf("Connect failed: %s\n", mysqli_connect_error());
+    exit();
+}
 //Get all country data
 $query = $db->query("SELECT * FROM categories");
 	
