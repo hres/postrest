@@ -62,9 +62,17 @@ $db=new	mysqli($config['hostname'], $config['username'], $config['password'], $c
 if ($db->connect_error) {
     die("Connection failed: " . $db->connect_error);
 } 
-echo "Connected successfully2<br /><br />";
+echo "Connected successfully3<br /><br />";
 //Get all country data
 $query = $db->query("SELECT * FROM categories");
+	
+if ($result = $db->query("SELECT HeaderE FROM categories LIMIT 10")) {
+    printf("Select returned %d rows.\n", $result->num_rows);
+
+    /* free result set */
+    $result->close();
+}
+	esel{printf("Error: %s\n", $mysqli->error);}
 
 //Count total number of rows
 $rowCount = $query->num_rows;
