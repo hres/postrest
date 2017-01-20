@@ -1,7 +1,9 @@
 <?php
 
 //update with GitHub database
-include('config.php');
+$config = parse_ini_file('./db.ini');
+$db=new	mysqli($config['hostname'], $config['username'], $config['password'], $config['dbname']);
+
 
 
 if(isset($_POST["category_id"]) && !empty($_POST["category_id"])){
