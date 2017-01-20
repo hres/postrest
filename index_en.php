@@ -65,13 +65,7 @@ echo "Connected successfully6<br /><br />";
 //Get all country data
 $query = $db->query("SELECT * FROM categories");
 	
-if ($result = $db->query("SELECT * FROM categories LIMIT 10")) {
-    printf("Select returned %d rows.\n", $result->num_rows);
 
-    /* free result set */
-    $result->close();
-}
-	else {printf("Error: %s\n", $mysqli->error);}
 
 //Count total number of rows
 $rowCount = $query->num_rows;
