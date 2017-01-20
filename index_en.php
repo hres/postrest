@@ -59,14 +59,23 @@ table,td,th
 //Include database configuration file
 $config = parse_ini_file('./db.ini');
 	//connection to the Server
-	$db = mysqli_connect($config['hostname'], $config['username'], $config['password'],$config['dbname']) or die("Unable to connect to Server");
+	$db2 = mysqli_connect($config['hostname'], $config['username'], $config['password'],$config['dbname']) or die("Unable to connect to Server");
 
 	
 if (mysqli_connect_errno()) {
     printf("Connect failed: %s\n", mysqli_connect_error());
     exit();
 }
-	else { printf("connected");}
+	else { printf("connected Procedural style");}
+	
+$db = new mysqli($config['hostname'], $config['username'], $config['password'],$config['dbname']);
+	if ($db->connect_errno) {
+    printf("Connect failed: %s\n", $mysqli->connect_error);
+    exit();
+}
+	
+	else { printf("connected-object orien");}
+	
 //Get all country data
 $query = $db->query("SELECT * FROM categories");
 	
