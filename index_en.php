@@ -57,12 +57,11 @@ table,td,th
 <p>
 <?php
 //Include database configuration file
-$config = parse_ini_file('./db.ini');
-$db=new	mysqli($config['hostname'], $config['username'], $config['password'], $config['dbname']);
+include('config.php');
 if ($db->connect_error) {
     die("Connection failed: " . $db->connect_error);
 } 
-echo "Connected successfully5<br /><br />";
+echo "Connected successfully6<br /><br />";
 //Get all country data
 $query = $db->query("SELECT * FROM categories");
 	
