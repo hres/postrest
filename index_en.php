@@ -59,7 +59,10 @@ table,td,th
 //Include database configuration file
 $config = parse_ini_file('./db.ini');
 $db=new	mysqli($config['hostname'], $config['username'], $config['password'], $config['dbname']);
-
+if ($db->connect_error) {
+    die("Connection failed: " . $db->connect_error);
+} 
+echo "Connected successfully<br /><br />";
 //Get all country data
 $query = $db->query("SELECT * FROM categories ORDER BY HeaderE ASC");
 
