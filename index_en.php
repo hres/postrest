@@ -76,7 +76,7 @@ $db = new mysqli($config['hostname'], $config['username'], $config['password'],$
 	
 	else { printf("connected-object orien");}
 	
-if ($result = $db->query("SELECT Name FROM categories LIMIT 10")) {
+if ($result = $db->query("SELECT HeaderE FROM categories LIMIT 10")) {
     printf("Select returned %d rows.\n", $result->num_rows);
 
     /* free result set */
