@@ -8,7 +8,7 @@ $db = new mysqli($config['hostname'], $config['username'], $config['password'],$
     exit();
 }
 	
-	else { printf("<br />connected OO db6<br />");}
+	else { printf("<br />connected OO db7<br />");}
 
 
 $dbname = $config['dbname'];
@@ -17,7 +17,7 @@ if (!mysql_connect($config['hostname'], $config['username'], $config['password']
     echo 'Could not connect to mysql';
     exit;
 }
-else {echo 'connected succ';}
+else {printf("<br />Only PrintF works<br />");}
 
 $sql = "SHOW TABLES FROM $dbname";
 $result = mysql_query($sql);
