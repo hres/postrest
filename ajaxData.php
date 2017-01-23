@@ -28,6 +28,13 @@ if(isset($_POST["category_id"]) && !empty($_POST["category_id"])){
 if(isset($_POST["subcategory_id"]) && !empty($_POST["subcategory_id"])){
     //Get all product and company data
     $query = $db->query("SELECT * FROM Products WHERE SubCategoryID = ".$_POST['subcategory_id']." ORDER BY NameE ASC");
+	
+	if ($result2 = $db->query("SELECT * FROM Products WHERE SubCategoryID = ".$_POST['subcategory_id']." ORDER BY NameE ASC")) {
+    printf("Select returned %d rows.\n", $result->num_rows);
+    /* free result set */
+    $result->close();
+}
+	else { printf("<br />unable to connnect to Product Table");}
     
     //Count total number of rows
     $rowCount = $query->num_rows;
