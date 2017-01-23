@@ -10,12 +10,12 @@ $(document).ready(function(){
                 data:'category_id='+categoryID,
                 success:function(html){
                     $('#subcategory').html(html);
-                    $('#displayy').html('<option value="">Select Sub Category</option>'); 
+                    $('#displayresults').html('<option value="">Select Sub Category</option>'); 
                 }
             }); 
         }else{
             $('#subcategory').html('<option value="">Select category first</option>');
-            $('#display').html('<option value="">Select subcategory first</option>'); 
+            $('#displayresults').html('<option value="">Select subcategory first</option>'); 
         }
     });
     
@@ -27,11 +27,11 @@ $(document).ready(function(){
                 url:'ajaxData.php',
                 data:'subcategory_id='+subcategoryID,
                 success:function(html){
-				$('#display').html(html);
+				$('#displayresults').html(html);
                 }
             }); 
         }else{
-            $('#display').html('no data found'); 
+            $('#displayresults').html('no data found'); 
         }
     });
 	
@@ -66,7 +66,7 @@ $db = new mysqli($config['hostname'], $config['username'], $config['password'],$
     exit();
 }
 	
-	else { printf("<br />connected OO db4<br />");}
+	else { printf("<br />connected OO db5<br />");}
 	
 if ($result = $db->query("SELECT * FROM Categories")) {
     printf("Select returned %d rows.\n", $result->num_rows);
@@ -107,7 +107,7 @@ $rowCount = $query->num_rows;
 
 <span id="displayy" name="displayy"></span>
 
-<span id="display" name="display"></span>
+<span id="displayresults" name="displayresults"></span>
 
 
 
