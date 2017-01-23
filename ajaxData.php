@@ -8,7 +8,7 @@ $db = new mysqli($config['hostname'], $config['username'], $config['password'],$
 
 if(isset($_POST["category_id"]) && !empty($_POST["category_id"])){
     //Get all subcategory data
-    $query = $db->query("SELECT * FROM Subcategories WHERE CategoryID = ".$_POST['category_id']." ORDER BY TopicE ASC");
+    $query = $db->query("SELECT * FROM SubCategories WHERE CategoryID = ".$_POST['category_id']." ORDER BY TopicE ASC");
     
     //Count total number of rows
     $rowCount = $query->num_rows;
