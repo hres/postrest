@@ -42,7 +42,7 @@ if(isset($_POST["subcategory_id"]) && !empty($_POST["subcategory_id"])){
 	 ?>
 
 <tr>
-  <td><p></p></td>
+  <td><p><?php CompanyName($row['CompanyID']) ?></p></td>
   <td><p><?php echo $row['NameE']; ?></p></td>
   <td><p><?php echo $row['ApprovalDate']; ?></p></td>
 </tr>
