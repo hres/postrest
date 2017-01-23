@@ -76,13 +76,13 @@ $db = new mysqli($config['hostname'], $config['username'], $config['password'],$
 	
 	else { printf("connected-object orien2");}
 	
-if ($result = $db->query("SELECT HeaderE FROM categories LIMIT 10")) {
+if ($result = $db->query("SELECT * FROM Categories LIMIT 10")) {
     printf("Select returned %d rows.\n", $result->num_rows);
 
     /* free result set */
     $result->close();
 }
-	else { printf("<br />unable to connnect to category table2");}
+	else { printf("<br />unable to connnect to category table3");}
 	
 //Get all country data
 $query = $db->query("SELECT * FROM categories");
