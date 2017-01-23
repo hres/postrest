@@ -8,16 +8,10 @@ $db = new mysqli($config['hostname'], $config['username'], $config['password'],$
     exit();
 }
 	
-	else { printf("<br />connected OO db1<br />");}
+	else { printf("<br />connected OO db2<br />");}
 
 
 
-
-if (!mysql_connect($config['hostname'], $config['username'], $config['password'])) {
-    printf ("Could not connect to mysql");
-    exit;
-}
-else {printf("<br />Only PrintF works<br />");}
 
 $sql = "SHOW TABLES FROM $dbname";
 $result = mysql_query($sql);
