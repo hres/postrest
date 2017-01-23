@@ -58,15 +58,7 @@ table,td,th
 <?php
 //Include database configuration file
 $config = parse_ini_file('./db.ini');
-	//connection to the Server
-	$db2 = mysqli_connect($config['hostname'], $config['username'], $config['password'],$config['dbname']) or die("Unable to connect to Server");
-
 	
-if (mysqli_connect_errno()) {
-    printf("Connect failed: %s\n", mysqli_connect_error());
-    exit();
-}
-	else { printf("connected Procedural style2");}
 	
 $db = new mysqli($config['hostname'], $config['username'], $config['password'],$config['dbname']);
 	if ($db->connect_errno) {
@@ -74,7 +66,7 @@ $db = new mysqli($config['hostname'], $config['username'], $config['password'],$
     exit();
 }
 	
-	else { printf("connected-object orien3");}
+	else { printf("<br />connected OO db<br />");}
 	
 if ($result = $db->query("SELECT * FROM Categories")) {
     printf("Select returned %d rows.\n", $result->num_rows);
