@@ -13,7 +13,7 @@ $db = new mysqli($config['hostname'], $config['username'], $config['password'],$
 
 $dbname = $config['dbname'];
 
-if (!mysql_connect('mysql_host', 'mysql_user', 'mysql_password')) {
+if (!mysql_connect($config['hostname'], $config['username'], $config['password'])) {
     echo 'Could not connect to mysql';
     exit;
 }
