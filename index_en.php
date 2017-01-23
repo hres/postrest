@@ -1,4 +1,4 @@
-<script src="./jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
     $('#category').on('change',function(){
@@ -66,7 +66,7 @@ $db = new mysqli($config['hostname'], $config['username'], $config['password'],$
     exit();
 }
 	
-	else { printf("<br />connected OO db5<br />");}
+	else { printf("<br />connected OO db6<br />");}
 	
 if ($result = $db->query("SELECT * FROM Categories")) {
     printf("Select returned %d rows.\n", $result->num_rows);
