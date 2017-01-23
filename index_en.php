@@ -10,7 +10,7 @@ $(document).ready(function(){
                 data:'category_id='+categoryID,
                 success:function(html){
                     $('#subcategory').html(html);
-                    $('#display').html('<option value="">Select Sub Category</option>'); 
+                    $('#displayy').html('<option value="">Select Sub Category</option>'); 
                 }
             }); 
         }else{
