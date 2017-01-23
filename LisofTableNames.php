@@ -1,17 +1,17 @@
 <?php
 $config = parse_ini_file('./db.ini');
 	
-	
-$db = new mysqli($config['hostname'], $config['username'], $config['password'],$config['dbname']);
+$dbname = $config['dbname'];	
+$db = new mysqli($config['hostname'], $config['username'], $config['password'],$dbname);
 	if ($db->connect_errno) {
     printf("Connect failed: %s\n", $mysqli->connect_error);
     exit();
 }
 	
-	else { printf("<br />connected OO db8<br />");}
+	else { printf("<br />connected OO db1<br />");}
 
 
-$dbname = $config['dbname'];
+
 
 if (!mysql_connect($config['hostname'], $config['username'], $config['password'])) {
     printf ("Could not connect to mysql");
