@@ -27,7 +27,7 @@ if(isset($_POST["category_id"]) && !empty($_POST["category_id"])){
 
 if(isset($_POST["subcategory_id"]) && !empty($_POST["subcategory_id"])){
     //Get all product and company data
-    $query = $db->query("SELECT * FROM Products WHERE SubCategoryID = ".$_POST['subcategory_id']." ORDER BY NameE ASC");
+    $query = $db->query("SELECT * FROM Products WHERE BINARY SubCategoryID = ".$_POST['subcategory_id']." ORDER BY NameE ASC");
 	
 	
     
