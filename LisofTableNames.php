@@ -8,13 +8,13 @@ $db = new mysqli($config['hostname'], $config['username'], $config['password'],$
     exit();
 }
 	
-	else { printf("<br />connected OO db7<br />");}
+	else { printf("<br />connected OO db8<br />");}
 
 
 $dbname = $config['dbname'];
 
 if (!mysql_connect($config['hostname'], $config['username'], $config['password'])) {
-    echo 'Could not connect to mysql';
+    printf ("Could not connect to mysql");
     exit;
 }
 else {printf("<br />Only PrintF works<br />");}
