@@ -74,7 +74,7 @@ $db = new mysqli($config['hostname'], $config['username'], $config['password'],$
     exit();
 }
 	
-	else { printf("connected-object orien2");}
+	else { printf("connected-object orien3");}
 	
 if ($result = $db->query("SELECT * FROM Categories")) {
     printf("Select returned %d rows.\n", $result->num_rows);
