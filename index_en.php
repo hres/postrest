@@ -85,7 +85,7 @@ if ($result = $db->query("SELECT * FROM Categories")) {
 	else { printf("<br />unable to connnect to category table3");}
 	
 //Get all country data
-$query = $db->query("SELECT * FROM categories");
+$query = $db->query("SELECT * FROM Categories");
 	
 
 
