@@ -2,13 +2,13 @@
 
 //update with GitHub database
 $config = parse_ini_file('./db.ini');
-$db=new	mysqli($config['hostname'], $config['username'], $config['password'], $config['dbname']);
+$db = new mysqli($config['hostname'], $config['username'], $config['password'],$config['dbname']);
 
 
 
 if(isset($_POST["category_id"]) && !empty($_POST["category_id"])){
     //Get all subcategory data
-    $query = $db->query("SELECT * FROM subcategories WHERE CategoryID = ".$_POST['category_id']." ORDER BY TopicE ASC");
+    $query = $db->query("SELECT * FROM Subcategories WHERE CategoryID = ".$_POST['category_id']." ORDER BY TopicE ASC");
     
     //Count total number of rows
     $rowCount = $query->num_rows;
@@ -27,7 +27,7 @@ if(isset($_POST["category_id"]) && !empty($_POST["category_id"])){
 
 if(isset($_POST["subcategory_id"]) && !empty($_POST["subcategory_id"])){
     //Get all product and company data
-    $query = $db->query("SELECT * FROM products WHERE SubCategoryID = ".$_POST['subcategory_id']." ORDER BY NameE ASC");
+    $query = $db->query("SELECT * FROM Products WHERE SubCategoryID = ".$_POST['subcategory_id']." ORDER BY NameE ASC");
     
     //Count total number of rows
     $rowCount = $query->num_rows;
@@ -59,7 +59,7 @@ if(isset($_POST["subcategory_id"]) && !empty($_POST["subcategory_id"])){
   
   Function CompanyName($CompanyID)
   {  
-   	$CompanyName=mysql_query("SELECT NameE FROM companies WHERE CompanyID='$CompanyID'");
+   	$CompanyName=mysql_query("SELECT NameE FROM Companies WHERE CompanyID='$CompanyID'");
 	$row2=mysql_fetch_row($CompanyName);
 	
    echo $row2[0];
