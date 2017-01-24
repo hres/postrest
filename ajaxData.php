@@ -60,16 +60,27 @@ if(isset($_POST["subcategory_id"]) && !empty($_POST["subcategory_id"])){
   <?php
   
   Function CompanyName($CompanyID)
-  {     global $db;
-	//if ($result = $db->query("SELECT * FROM Companies WHERE BINARY CompanyID='$CompanyID'")) {
-  //  printf("Select returned %d rows.\n", $result->num_rows);
-    /* free result set */
-  //  $result->close();
-//}
-//	else { printf("<br />unable to connnect to Companies table");}  
-  	$CompanyName= $db->query("SELECT * FROM Companies WHERE BINARY CompanyID='$CompanyID'");
-	$row2=mysql_fetch_row($CompanyName);
-	echo $row2[1];
+  {  
+
+  global $db;
+  
+  if ($result = $db->query("SELECT * FROM Companies WHERE BINARY CompanyID='$CompanyID'")) 
+  {
+     if($result->num_rows > 0)
+     {
+               while($row = $result->fetch_assoc())
+	       		   { 
+			   echo $row['NameE'];
+			   }
+     }
+        
+	/* free result set */
+    $result->close();
+  }
+	else { 
+		printf("<br />unable to connnect to Companies table");
+	     }  
+
   }
   
   ?>
