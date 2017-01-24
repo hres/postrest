@@ -61,7 +61,7 @@ if(isset($_POST["subcategory_id"]) && !empty($_POST["subcategory_id"])){
   
   Function CompanyName($CompanyID)
   {  
-   	$CompanyName=mysql_query("SELECT * FROM Companies WHERE CompanyID=$CompanyID");
+   	$CompanyName=mysql_query("SELECT * FROM Companies WHERE BINARY CompanyID=$CompanyID");
 	$row2=mysql_fetch_row($CompanyName);
 	echo $row2[1];
   }
