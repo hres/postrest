@@ -61,7 +61,9 @@ if(isset($_POST["subcategory_id"]) && !empty($_POST["subcategory_id"])){
   
   Function CompanyName($CompanyID)
   {  
-   	echo $CompanyID;
+   	$CompanyName=mysql_query("SELECT * FROM Companies WHERE CompanyID=$CompanyID");
+	$row2=mysql_fetch_row($CompanyName);
+	echo $row2[1];
   }
   
   ?>
