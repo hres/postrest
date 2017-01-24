@@ -44,7 +44,7 @@ if(isset($_POST["subcategory_id"]) && !empty($_POST["subcategory_id"])){
 <tr>
   <td><p><?php CompanyName($row['CompanyID']) ?></p></td>
   <td><p><?php echo $row['NameE']; ?></p></td>
-  <td><p><?php echo $row['ApprovalDate']; ?></p></td>
+  <td><p><?php echo date_format($row['ApprovalDate'], 'Y-m-d'); ?></p></td>
 </tr>
 <?php
 	
