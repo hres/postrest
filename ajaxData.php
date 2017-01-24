@@ -60,7 +60,8 @@ if(isset($_POST["subcategory_id"]) && !empty($_POST["subcategory_id"])){
   <?php
   
   Function CompanyName($CompanyID)
-  {  
+  {  $config = parse_ini_file('./db.ini');
+$db = new mysqli($config['hostname'], $config['username'], $config['password'],$config['dbname']);
 	if ($result = $db->query("SELECT * FROM Companies")) {
     printf("Select returned %d rows.\n", $result->num_rows);
     /* free result set */
