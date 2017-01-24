@@ -61,7 +61,7 @@ if(isset($_POST["subcategory_id"]) && !empty($_POST["subcategory_id"])){
   
   Function CompanyName($CompanyID)
   {  
-   	echo 'company name here';
+   	echo $CompanyID;
   }
   
   ?>
