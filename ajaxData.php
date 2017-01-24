@@ -67,7 +67,7 @@ if(isset($_POST["subcategory_id"]) && !empty($_POST["subcategory_id"])){
   //  $result->close();
 //}
 //	else { printf("<br />unable to connnect to Companies table");}  
-  	$CompanyName=mysql_query("SELECT * FROM Companies WHERE BINARY CompanyID='$CompanyID'");
+  	$CompanyName= $db->query("SELECT * FROM Companies WHERE BINARY CompanyID='$CompanyID'");
 	$row2=mysql_fetch_row($CompanyName);
 	echo $row2[1];
   }
