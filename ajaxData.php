@@ -61,8 +61,8 @@ if(isset($_POST["subcategory_id"]) && !empty($_POST["subcategory_id"])){
   
   Function CompanyName($CompanyID)
   {     global $db;
-	if ($result = $db->query("SELECT * FROM Companies")) {
-    printf("Select returned111 %d rows.\n", $result->num_rows);
+	if ($result = $db->query("SELECT * FROM Companies WHERE BINARY CompanyID='$CompanyID'")) {
+    printf("Select returned %d rows.\n", $result->num_rows);
     /* free result set */
     $result->close();
 }
