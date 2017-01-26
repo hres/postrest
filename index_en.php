@@ -39,7 +39,24 @@ $(document).ready(function(){
 	
 	});
 	
+function AjaxCall(Cid){
 	
+     var CompanyID=Cid;
+        if(CompanyID){
+            $.ajax({
+                type:'POST',
+                url:'ajaxData.php',
+                data:'company_id='+CompanyID,
+                success:function(html){
+				$('#displayresults').html(html);
+                }
+            }); 
+        }else{
+            $('#displayresults').html('no data found'); 
+       }
+  
+    
+    }	
 
 	
 </script>
