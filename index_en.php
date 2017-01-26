@@ -61,12 +61,13 @@ $config = parse_ini_file('./db.ini');
 	
 	
 $db = new mysqli($config['hostname'], $config['username'], $config['password'],$config['dbname']);
+$db->set_charset("utf8");
 	if ($db->connect_errno) {
     printf("Connect failed: %s\n", $mysqli->connect_error);
     exit();
 }
 	
-	else { printf("<br />connected OO db8<br />");}
+	else { printf("<br />connected OO db0<br />");}
 	
 if ($result = $db->query("SELECT * FROM Categories")) {
     printf("Select returned %d rows.\n", $result->num_rows);
