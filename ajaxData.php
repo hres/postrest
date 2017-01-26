@@ -43,7 +43,38 @@ if(isset($_POST["subcategory_id"]) && !empty($_POST["subcategory_id"])){
 	 ?>
 
 <tr>
-  <td><p><?php CompanyName($row['CompanyID']) ?></p></td>
+  <td><p><a href="#" id="company" onclick="AjaxCall(D034);"><?php CompanyName($row['CompanyID']) ?></a></p></td>
+  <td><p><?php echo $row['NameE']; ?></p></td>
+  <td><p><?php echo $row['ApprovalDate']; ?></p></td>
+</tr>
+<?php
+	
+        }
+		 echo '</table></p>';
+    }else{
+        echo 'NO data';
+    }
+}
+
+  ?>
+
+<?php
+  
+  if(isset($_POST["company_id"]) && !empty($_POST["company_id"])){
+    //Get all product and company data
+    $query = $db->query("SELECT * FROM products WHERE BINARY CompanyID = ".$_POST['company_id']." ORDER BY NameE ASC");
+    
+    //Count total number of rows
+    $rowCount = $query->num_rows;
+    
+    //Display company and product list
+    if($rowCount > 0){
+        echo '<p align="center"><table border="1">';
+        while($row = $query->fetch_assoc()){ 
+        
+	 ?>
+
+<tr>
   <td><p><?php echo $row['NameE']; ?></p></td>
   <td><p><?php echo $row['ApprovalDate']; ?></p></td>
 </tr>
