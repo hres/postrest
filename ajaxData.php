@@ -29,7 +29,7 @@ if(isset($_POST["category_id"]) && !empty($_POST["category_id"])){
 
 if(isset($_POST["subcategory_id"]) && !empty($_POST["subcategory_id"])){
     //Get all product and company data
-    $query = $db->query("SELECT * FROM products WHERE BINARY SubCategoryID = ".$_POST['subcategory_id']." ORDER BY NameE ASC");
+    $query = $db->query("SELECT * FROM Products WHERE BINARY SubCategoryID = ".$_POST['subcategory_id']." ORDER BY NameE ASC");
     
     //Count total number of rows
     $rowCount = $query->num_rows;
@@ -69,7 +69,7 @@ if(isset($_POST["subcategory_id"]) && !empty($_POST["subcategory_id"])){
   
   if(isset($_POST["company_id"]) && !empty($_POST["company_id"])){
     //Get all product and company data
-    $query = $db->query("SELECT * FROM products WHERE BINARY CompanyID = ".$_POST['company_id']." ORDER BY NameE ASC");
+    $query = $db->query("SELECT * FROM Products WHERE BINARY CompanyID = ".$_POST['company_id']." ORDER BY NameE ASC");
     
     //Count total number of rows
     $rowCount = $query->num_rows;
