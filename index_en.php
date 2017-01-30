@@ -84,15 +84,9 @@ $db->set_charset("utf8");
     exit();
 }
 	
-	else { printf("<br />connected OO db0<br />");}
+	else { printf("<br />Test- db- 10<br />");}
 	
-if ($result = $db->query("SELECT * FROM Categories")) {
-    printf("Select returned %d rows.\n", $result->num_rows);
 
-    /* free result set */
-    $result->close();
-}
-	else { printf("<br />unable to connnect to category table3");}
 	
 //Get all country data
 $query = $db->query("SELECT * FROM Categories");
