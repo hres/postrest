@@ -33,6 +33,7 @@ if(isset($_POST["subcategory_id"]) && !empty($_POST["subcategory_id"])){
     
     //Count total number of rows
     $rowCount = $query->num_rows;
+    SubCategoryName($_POST['subcategory_id']);	
     
     //Display company and product list
     if($rowCount > 0){ ?>
@@ -51,7 +52,7 @@ if(isset($_POST["subcategory_id"]) && !empty($_POST["subcategory_id"])){
 <tr>
   <td><p><a href="#" id="company" onclick="AjaxCall('<?php echo $row['CompanyID'];?>');"><?php CompanyName($row['CompanyID']) ?></a></p></td>
   <td><p><?php echo $row['NameE']; ?></p></td>
-  <td><p><?php echo $row['ApprovalDate']; ?></p></td>
+  <td><p><?php FormatDate($row['ApprovalDate']) ?></p></td>
 </tr>
 <?php
 	
@@ -83,17 +84,28 @@ if(isset($_POST["subcategory_id"]) && !empty($_POST["subcategory_id"])){
     
     //Count total number of rows
     $rowCount = $query->num_rows;
+	  	echo "Company: ";
+	CompanyName($CompID);
     
     //Display company and product list
     if($rowCount > 0){
-       echo '<p align="center"><table border="1">';
+		 ?>
+		
+        <p align="center"><table border="1">
+        <tr><th>Category (Sub-Category)</th>
+        <th>Product Name</th>
+        <th>Acceptance Date</th>
+        </tr>
+        
+       <?php
         while($row = $query->fetch_assoc()){ 
         
 	 ?>
 
 <tr>
+  <td><p><?php CategorySubCategoryName($row['SubCategoryID']); ?></p></td>	
   <td><p><?php echo $row['NameE']; ?></p></td>
-  <td><p><?php echo $row['ApprovalDate']; ?></p></td>
+   <td><p><?php FormatDate($row['ApprovalDate']) ?></p></td>
 </tr>
 <?php
 	
@@ -131,6 +143,86 @@ if(isset($_POST["subcategory_id"]) && !empty($_POST["subcategory_id"])){
 	     }  
 
   }
+		
+		
+		
+  Function FormatDate($DateFromDB)
+  {
+  
+  $time = strtotime($DateFromDB);
+  $myFormatForView = date("m/d/y", $time);
+  echo $myFormatForView;
+  
+  }
+  
+  Function SubCategoryName($SubCategoryID)
+  {
+	  global $db;
+	  
+	$query = $db->query("SELECT * FROM SubCategories WHERE BINARY SubCategoryID = '$SubCategoryID'");
+    
+    //Count total number of rows
+    $rowCount = $query->num_rows;
+    
+    //Display subcategory list
+    if($rowCount > 0){
+       
+        while($row = $query->fetch_assoc()){ 
+		
+		    echo "Category :<strong> ";
+			CategoryName($row['CategoryID']);
+			echo "</strong><br />";
+            echo "Sub-Category : <strong>".$row['TopicE']."</strong><br /><br />";
+			echo "(Conditions of use:".$row['condition_use_en'].")";
+        }
+    }else{
+        echo "No Sub-Category";
+    }
+}
+
+  Function CategoryName($CategoryID)
+  {
+	  global $db;
+	  
+	$query = $db->query("SELECT * FROM Categories WHERE BINARY CategoryID = '$CategoryID'");
+    
+    //Count total number of rows
+    $rowCount = $query->num_rows;
+    
+    //Display subcategory list
+    if($rowCount > 0){
+       
+        while($row = $query->fetch_assoc()){ 
+            echo $row['HeaderE'];
+        }
+    }else{
+        echo "No Category";
+    }
+}
+
+Function CategorySubCategoryName($SubCategoryID)
+  {
+	  global $db;
+	  
+	$query = $db->query("SELECT * FROM SubCategories WHERE BINARY SubCategoryID = '$SubCategoryID'");
+    
+    //Count total number of rows
+    $rowCount = $query->num_rows;
+    
+    //Display subcategory list
+    if($rowCount > 0){
+       
+        while($row = $query->fetch_assoc()){ 
+		
+		    echo  CategoryName($row['CategoryID'])."(".$row['TopicE'].")";
+           
+			
+        }
+    }else{
+        echo "No data";
+    }
+}
+		
   
   ?>
   
