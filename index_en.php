@@ -84,12 +84,12 @@ $db->set_charset("utf8");
     exit();
 }
 	
-	else { printf("<br />Test- db- 10<br />");}
+	else { printf("<br />Test- db- 11<br />");}
 	
 
 	
 //Get all country data
-$query = $db->query("SELECT * FROM Categories");
+$query = $db->query("SELECT * FROM Categories ORDER BY HeaderE ASC");
 	
 
 
