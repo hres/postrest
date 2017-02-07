@@ -21,12 +21,13 @@ $(document).ready(function(){
     
     $('#subcategory').on('change',function(){
         var subcategoryID = $(this).val();
+		var pageID = 0;
         if(subcategoryID){
             $.ajax({
                 type:'POST',
                 url:'ajaxData.php',
-                data:'subcategory_id='+subcategoryID,
-                success:function(html){
+                data:{'subcategory_id':+subcategoryID,'page_id':+pageID},
+			    success:function(html){
 				$('#displayresults').html(html);
                 }
             }); 
@@ -57,19 +58,57 @@ function AjaxCall(Cid) {
   
     
     }	
+	
+function pages(sID, pID) {
+    var subcategoryID = sID;
+	var pageID = pID;
+        if(subcategoryID){
+            $.ajax({
+                type:'POST',
+                url:'ajaxData.php',
+                data:{'subcategory_id':+subcategoryID,'page_id':+pageID},
+			    success:function(html){
+				$('#displayresults').html(html);
+                }
+            }); 
+        }else{
+            $('#city').html('no data found'); 
+        }
+    
+    }
+	
 
 	
 </script>
 
-<style>
+<style type="text/css">
+li{
+	list-style: none;
+	display:inline-block;
+	padding:6px;
+}
 table,td,th
 {
  padding:10px;
  border-collapse:collapse;
  font-family:Georgia, "Times New Roman", Times, serif;
  border:solid #eee 2px;
+ width:90%;
+ 
 }
-</style>
+.pagingDiv
+{
+	width:90%;
+	padding:2px;
+	font-family:Georgia, "Times New Roman", Times, serif;
+}
+.divClass
+{
+	padding-left:15px;
+    float:left;
+	width:25%;	
+}
+	</style>
 
 <p>
 <?php
