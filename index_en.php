@@ -123,7 +123,7 @@ $db->set_charset("utf8");
     exit();
 }
 	
-	else { printf("<br />Test- db- 11<br />");}
+	else { printf("<br />Test- db- 12<br />");}
 	
 
 	
