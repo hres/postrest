@@ -93,9 +93,11 @@ table,td,th
  border-collapse:collapse;
  font-family:Georgia, "Times New Roman", Times, serif;
  border:solid #eee 2px;
- width:90%;
- 
-}
+
+ }
+table{
+	 width:90%;
+	}
 .pagingDiv
 {
 	width:90%;
