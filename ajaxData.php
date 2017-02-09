@@ -66,7 +66,7 @@ if(isset($_POST["subcategory_id"]) && !empty($_POST["subcategory_id"]) && isset(
     
         <p align="center">
         
-        <div class="pagingDiv"><?php paging ($_POST["subcategory_id"],$total,$_POST["page_id"], $TotalCount);?>
+     
         <table border="1">
    
         <tr><th>Company Name</th>
@@ -86,18 +86,19 @@ if(isset($_POST["subcategory_id"]) && !empty($_POST["subcategory_id"]) && isset(
 </tr>
 <?php
 	
-        }
-		 echo '</table></div></p>';
+        } ?>
+        
+		</table>
+        
+           <div class="pagingDiv"><?php paging ($_POST["subcategory_id"],$total,$_POST["page_id"], $TotalCount);?></div></p>
+     <?php    
+         
     }else{
         echo 'NO data';
     }
 }
 
   ?>
-
- 
-
-
 
  <?php
   
@@ -258,7 +259,15 @@ Function CategorySubCategoryName($SubCategoryID)
 function paging ($subID, $total, $pageid, $TotalCount)
 {
 	
-	echo "<br />";
+	?>
+	
+	<div class="divClass">
+Number of items found: <?php echo $TotalCount; ?> <br />
+Page: <?php if ($pageid==0) echo $pageid+1; else echo $pageid; ?>/<?php echo $total; ?> <br /><br />
+</div>
+	
+	<?php
+	echo "<br /><br /><br />";
 	if($pageid>1)
 {
 	$id=$pageid-1;
@@ -269,7 +278,6 @@ function paging ($subID, $total, $pageid, $TotalCount)
 
 
 <?php
-
 if($pageid!=$total && $total!=1)
 {
 	if ($pageid==0)
@@ -285,8 +293,6 @@ if($pageid!=$total && $total!=1)
 	}
 	
 }
-
-
 echo "<ul>";
 		for($i=1;$i<=$total;$i++)
 		{
@@ -306,13 +312,6 @@ echo "<ul>";
 		}
 echo "</ul>";
 ?>
-<div class="divClass">
-Number of items found: <?php echo $TotalCount; ?> <br />
-Page: <?php if ($pageid==0) echo $pageid+1; else echo $pageid; ?>/<?php echo $total; ?> <br /><br />
-</div>
+
 	
 <?php } ?>
-  
- 
-
-
