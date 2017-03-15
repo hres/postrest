@@ -3,14 +3,22 @@
 $(document).ready(function(){
     $('#category').on('change',function(){
         var categoryID = $(this).val();
-        if(categoryID){
+	    if(categoryID){
             $.ajax({
                 type:'POST',
                 url:'ajaxData.php',
-                data:'category_id='+categoryID,
-                success:function(html){
-                    $('#subcategory').html(html);
-                    $('#displayresults').html('<option value="">Select Sub Category</option>'); 
+				data:'category_id='+categoryID,
+				success:function(html){
+                	if(categoryID!='SelectAll'){
+					$('#subcategory').html(html);	
+                    $('#displayresults').html('Select subcategory'); 
+					}
+					else
+					{
+					$('#subcategory').html('<option value="">Select All</option>');		
+					$('#displayresults').html(html); 
+					}
+					
                 }
             }); 
         }else{
@@ -39,6 +47,81 @@ $(document).ready(function(){
 	
 	
 	});
+	
+
+function SelectAllFirstPage() {
+		
+		var categoryIDAll = 'SelectAll';
+		if(categoryIDAll){
+			 $.ajax({
+                type:'POST',
+                url:'ajaxData.php',
+				data:'category_id='+categoryIDAll,
+				success:function(html){
+					$('#subcategory').html('<option value="">Select All</option>');		
+					$('#displayresults').html(html); 
+				}
+				
+				});
+				
+			
+		}
+		else{
+            $('#subcategory').html('<option value="">Select category first</option>');
+            $('#displayresults').html('<option value="">Select subcategory first</option>'); 
+        }
+		
+		
+}
+	
+function SelectAllNextPage(SubCatLimit,ProductLimit, pageID) {
+		
+		var SubCatLimit=SubCatLimit;
+		var ProductLimit=ProductLimit;
+		var pageID=pageID
+		if(SubCatLimit || ProductLimit){
+			 $.ajax({
+                type:'POST',
+                url:'ajaxData.php',
+				data:{'subCat_limit_next':+SubCatLimit,'product_limit_next':+ProductLimit, 'page_id':+pageID},
+				success:function(html){
+					$('#subcategory').html('<option value="">Select All</option>');		
+					$('#displayresults').html(html); 
+				}
+				
+				});
+				
+			
+		}
+	}
+	
+	
+		function SelectAllLastPage() {
+		
+		var SelectAllLastpage = 'LastPage';
+		if(SelectAllLastpage){
+			 $.ajax({
+                type:'POST',
+                url:'ajaxData.php',
+				data:'SelectAllLastpage='+SelectAllLastpage,
+				success:function(html){
+					$('#subcategory').html('<option value="">Select All- last</option>');		
+					$('#displayresults').html(html); 
+				}
+				
+				
+			
+				});
+		}
+				
+				else {
+				 $('#displayresults').html('Error'); 
+				}
+				
+				
+}
+
+	
 	
 function AjaxCall(Cid) {
 	
@@ -139,6 +222,7 @@ $rowCount = $query->num_rows;
 ?>
 <select name="category" id="category">
     <option value="">Select Category</option>
+    <option value="SelectAll">Select All</option>
     <?php
     if($rowCount > 0){
         while($row = $query->fetch_assoc()){ 
