@@ -636,7 +636,10 @@ function pagingAll ($SubCatLimitNext, $ProductLimitNext, $SubCatLimitPrevious, $
 	global $db;
 	$NumberOfProducts = $db->query("SELECT * FROM Products"); 
   
-	
+	echo 'Number of items found: <strong>';
+	echo $NumberOfProducts;
+	echo '</strong><br /><br />';
+
 
 
 	
