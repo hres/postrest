@@ -266,7 +266,7 @@ $counter=0;
 		$queryPrevious = $db->query("SELECT SubCategoryID FROM SubCategories ORDER BY TopicE ASC LIMIT $PreviousSubLimit, 1");
 		$rowCountPrevious=$queryPrevious->num_rows; 
 		
-		echo $rowCountPrevious;
+		
 		
 		if($rowCountPrevious > 0){
 	 
