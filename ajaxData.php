@@ -432,10 +432,7 @@ $counter=0;
 			$PreviousProductLimit = (int)$PreviousProductLimit;
 			$PreviousProductLimit = $PreviousProductLimit *$SelectAllLimit;
 			
-			echo 'Previous Prdo: ';
-			echo $PreviousProductLimit;
-		
-			
+					
 			$pageID=2;
 					
 				}
