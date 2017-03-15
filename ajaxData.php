@@ -7,11 +7,13 @@ $db->set_charset("utf8");
 
 // Limit per page
 $limit=15;
+$SelectAllLimit=15;
 
 
-if(isset($_POST["category_id"]) && !empty($_POST["category_id"])){
+if(isset($_POST["category_id"]) && !empty($_POST["category_id"]) && ($_POST["category_id"]!="SelectAll")){
+	
     //Get all subcategory data
-    $query = $db->query("SELECT * FROM SubCategories WHERE CategoryID = ".$_POST['category_id']." ORDER BY TopicE ASC");
+    $query = $db->query("SELECT * FROM SubCategories WHERE BINARY CategoryID = ".$_POST['category_id']." ORDER BY TopicE ASC");
     
     //Count total number of rows
     $rowCount = $query->num_rows;
@@ -24,7 +26,10 @@ if(isset($_POST["category_id"]) && !empty($_POST["category_id"])){
         }
     }else{
         echo '<option value="">Sub Category not available</option>';
+		echo 'Select Sub Category';
     }
+	
+	
 }
 
 
