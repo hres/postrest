@@ -303,9 +303,7 @@ $counter=0;
 				$PreviousProductLimit = (int)$PreviousProductLimit;
 				$PreviousProductLimit = $PreviousProductLimit *$SelectAllLimit;
 			
-				echo 'Previous Prdo11: ';
-			echo $PreviousProductLimit;
-				
+							
 				$pageID=2;
 				
 			}
@@ -347,7 +345,7 @@ $counter=0;
 	
 		 	$queryList = $db->query("SELECT p1.CompanyID, p1.NameE as ProductName, p1.SubCategoryID, p1.ApprovalDate as ApprovalDate, c1.CompanyID as CompanyID, c1.NameE as CompanyName FROM Products as p1 JOIN Companies as c1 ON p1.CompanyID=c1.CompanyID WHERE p1.SubCategoryID=".$row['SubCategoryID']." ORDER BY CompanyName ASC LIMIT $NextProductLimit, $SelectAllLimit");
 			
-			echo $NextProductLimit;
+			
 
 		 $rowListCount=$queryList->num_rows; 
 		 
