@@ -469,12 +469,13 @@ $counter=0;
 		
 		?>
 </table>
+</p>
 <div class="pagingDiv">
   <p>
     <?php pagingAll ($NextSubLimit, $NextProductLimit, $PreviousSubLimit, $PreviousProductLimit, $pageID);?>
   </p>
 </div>
-</p>
+
 <?php    
          
     }else{
@@ -563,12 +564,13 @@ if(isset($_POST["SelectAllLastpage"])){
 		
 		 ?>
 </table>
+</p>
 <div class="pagingDiv">
   <p>
     <?php pagingAll (0, 0,$PreviousSubLimit, $PreviousProductLimit,0);?>
   </p>
 </div>
-</p>
+
 <?php	
 		}
 		
@@ -614,17 +616,18 @@ $PreviousProductLimit =  $numberOfItems - $SelectAllLimit;
 
 		?>
 </table>
+</p>
 <div class="pagingDiv">
   <p>
     <?php pagingAll (0, 0,$PreviousSubLimit,$PreviousProductLimit , 0);?>
   </p>
 </div>
-</p>
+
 <?php
 		
 		}
-	 } ?>
-<?php 
+	 } 
+ 
 	 
 }
 	 }
@@ -639,9 +642,6 @@ function pagingAll ($SubCatLimitNext, $ProductLimitNext, $SubCatLimitPrevious, $
 	echo 'Number of items found: <strong>';
 	echo $NumberOfProducts;
 	echo '</strong><br /><br />';
-
-
-
 	
 	if($pageID==1)
 		{
