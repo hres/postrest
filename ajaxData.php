@@ -70,7 +70,11 @@ if(isset($_POST["category_id"]) && !empty($_POST["category_id"]) && ($_POST["cat
       </p></td>
   </tr>
   <?php
-      } 
+  
+
+
+	
+        } 
 		
 $NextSubLimit=1;
 $NextProductLimit=0;
@@ -142,13 +146,12 @@ $PreviousProductLimit=-2;
 
 		?>
 </table>
-</p>
 <div class="pagingDiv">
   <p>
     <?php pagingAll ($NextSubLimit, $NextProductLimit, $PreviousSubLimit, $PreviousProductLimit, $pageID);?>
   </p>
 </div>
-
+</p>
 <?php    
          
     }else{
@@ -169,13 +172,11 @@ $PreviousProductLimit=-2;
 		
 		
     }else{
-       echo 'No data for Select All option';
+       echo 'empty!';
     }
 	
 	
 }
-
-
 
 // Select Next page & Previous
 if(isset($_POST["subCat_limit_next"]) && isset($_POST["product_limit_next"])){
@@ -637,7 +638,7 @@ $PreviousProductLimit =  $numberOfItems - $SelectAllLimit;
 function pagingAll ($SubCatLimitNext, $ProductLimitNext, $SubCatLimitPrevious, $ProductLimitPrevious, $pageID)
 {    
 	global $db;
-	$NumberOfProducts = $db->query("SELECT * FROM Products"); 
+	$NumberOfProducts = $db->query("SELECT * FROM Products")->num_rows; 
   
 	echo 'Number of items found: <strong>';
 	echo $NumberOfProducts;
