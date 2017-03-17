@@ -1,4 +1,5 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="./jquery.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
     $('#category').on('change',function(){
@@ -6,7 +7,7 @@ $(document).ready(function(){
 	    if(categoryID){
             $.ajax({
                 type:'POST',
-                url:'ajaxData.php',
+                url:'ajaxData_fr.php',
 				data:'category_id='+categoryID,
 				success:function(html){
                 	if(categoryID!='SelectAll'){
@@ -15,15 +16,15 @@ $(document).ready(function(){
 					}
 					else
 					{
-					$('#subcategory').html('<option value="">Select All</option>');		
+					$('#subcategory').html('<option value="">Sélectionner tout</option>');		
 					$('#displayresults').html(html); 
 					}
 					
                 }
             }); 
         }else{
-            $('#subcategory').html('<option value="">Select category first</option>');
-            $('#displayresults').html('<option value="">Select subcategory first</option>'); 
+            $('#subcategory').html('<option value="">Sélectionner une catégorie en premier</option>');
+            $('#displayresults').html('<option value="">Sélectionner la sous-catégorie en premier</option>'); 
         }
     });
     
@@ -33,31 +34,31 @@ $(document).ready(function(){
         if(subcategoryID){
             $.ajax({
                 type:'POST',
-                url:'ajaxData.php',
+                url:'ajaxData_fr.php',
                 data:{'subcategory_id':+subcategoryID,'page_id':+pageID},
 			    success:function(html){
 				$('#displayresults').html(html);
                 }
             }); 
         }else{
-            $('#displayresults').html('no data found'); 
+            $('#displayresults').html('empty!'); 
         }
     });
 	
-	
-	
+
 	});
 	
-function SelectAllFirstPage() {
+
+	function SelectAllFirstPage() {
 		
 		var categoryIDAll = 'SelectAll';
 		if(categoryIDAll){
 			 $.ajax({
                 type:'POST',
-                url:'ajaxData.php',
+                url:'ajaxData_fr.php',
 				data:'category_id='+categoryIDAll,
 				success:function(html){
-					$('#subcategory').html('<option value="">Select All</option>');		
+					$('#subcategory').html('<option value="">Sélectionner tout</option>');		
 					$('#displayresults').html(html); 
 				}
 				
@@ -66,14 +67,15 @@ function SelectAllFirstPage() {
 			
 		}
 		else{
-            $('#subcategory').html('<option value="">Select category first</option>');
-            $('#displayresults').html('<option value="">Select subcategory first</option>'); 
+            $('#subcategory').html('<option value="">Sélectionner une catégorie en premier</option>');
+            $('#displayresults').html('<option value="">Sélectionner la sous-catégorie en premier</option>'); 
         }
 		
 		
-}
+	}
 	
-function SelectAllNextPage(SubCatLimit,ProductLimit, pageID) {
+	
+	function SelectAllNextPage(SubCatLimit,ProductLimit, pageID) {
 		
 		var SubCatLimit=SubCatLimit;
 		var ProductLimit=ProductLimit;
@@ -81,10 +83,10 @@ function SelectAllNextPage(SubCatLimit,ProductLimit, pageID) {
 		if(SubCatLimit || ProductLimit){
 			 $.ajax({
                 type:'POST',
-                url:'ajaxData.php',
+                url:'ajaxData_fr.php',
 				data:{'subCat_limit_next':+SubCatLimit,'product_limit_next':+ProductLimit, 'page_id':+pageID},
 				success:function(html){
-					$('#subcategory').html('<option value="">Select All</option>');		
+					$('#subcategory').html('<option value="">Sélectionner tout</option>');		
 					$('#displayresults').html(html); 
 				}
 				
@@ -101,10 +103,10 @@ function SelectAllNextPage(SubCatLimit,ProductLimit, pageID) {
 		if(SelectAllLastpage){
 			 $.ajax({
                 type:'POST',
-                url:'ajaxData.php',
+                url:'ajaxData_fr.php',
 				data:'SelectAllLastpage='+SelectAllLastpage,
 				success:function(html){
-					$('#subcategory').html('<option value="">Select All- last</option>');		
+					$('#subcategory').html('<option value="">Sélectionner tout</option>');		
 					$('#displayresults').html(html); 
 				}
 				
@@ -118,48 +120,60 @@ function SelectAllNextPage(SubCatLimit,ProductLimit, pageID) {
 				}
 				
 				
-}
+	}
+
+	
+
+
 	
 	
-function AjaxCall(Cid) {
+	
+	function AjaxCall(Cid) {
 	
      var CompanyID=Cid;
         if(CompanyID){
             $.ajax({
                 type:'POST',
-                url:'ajaxData.php',
+                url:'ajaxData_fr.php',
                 data:'company_id='+CompanyID,
                 success:function(html){
 				$('#displayresults').html(html);
                 }
             }); 
         }else{
-            $('#displayresults').html('no data found'); 
+            $('#displayresults').html('empty!'); 
        }
   
     
-    }	
+    }
 	
-function pages(sID, pID) {
+
+	
+	function pages(sID, pID) {
     var subcategoryID = sID;
 	var pageID = pID;
         if(subcategoryID){
             $.ajax({
                 type:'POST',
-                url:'ajaxData.php',
+                url:'ajaxData_fr.php',
                 data:{'subcategory_id':+subcategoryID,'page_id':+pageID},
 			    success:function(html){
 				$('#displayresults').html(html);
                 }
             }); 
         }else{
-            $('#city').html('no data found'); 
+            $('#displayresults').html('empty!'); 
         }
     
     }
+    
 	
+	
+
+
 	
 </script>
+
 
 <style type="text/css">
 li{
@@ -205,23 +219,24 @@ $db->set_charset("utf8");
 }
 	
 	
-	
 //Get all country data
-$query = $db->query("SELECT * FROM Categories ORDER BY HeaderE ASC");
-	
+$query = $db->query("SELECT * FROM Categories ORDER BY HeaderF ASC");
+
+
 //Count total number of rows
 $rowCount = $query->num_rows;
 ?>
 <select name="category" id="category">
-    <option value="">Select Category</option>
-    <option value="SelectAll">Select All</option>
+    <option value="">Choisir une catégorie</option>
+    <option value="SelectAll">Sélectionner tout</option>
+    
     <?php
     if($rowCount > 0){
         while($row = $query->fetch_assoc()){ 
-            echo '<option value="'.$row['CategoryID'].'">'.$row['HeaderE'].'</option>';
+            echo '<option value="'.$row['CategoryID'].'">'.$row['HeaderF'].'</option>';
         }
     }else{
-        echo '<option value="">Categories are not available</option>';
+        echo '<option value="">empty!</option>';
     }
     ?>
 </select>
@@ -229,11 +244,10 @@ $rowCount = $query->num_rows;
 <p>
 
 <select name="subcategory" id="subcategory">
-    <option value="">Select category first</option>
+    <option value="">Sélectionner une catégorie en premier</option>
 </select>
 
 </p>
-
 <span id="displayy" name="displayy"></span>
 
 <span id="displayresults" name="displayresults"></span>
