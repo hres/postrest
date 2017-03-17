@@ -8,8 +8,9 @@ $limit=15;
 $SelectAllLimit=15;
 if(isset($_POST["category_id"]) && !empty($_POST["category_id"]) && ($_POST["category_id"]=="SelectAll")){
 	
+
 		
-    $query = $db->query("SELECT SubCategoryID FROM SubCategories ORDER BY TopicE ASC LIMIT 0, 1");
+    $query = $db->query("SELECT SubCategoryID FROM SubCategories ORDER BY TopicF ASC LIMIT 0, 1");
 	
 	$rowCount=$query->num_rows;; 
     if($rowCount > 0){
@@ -18,9 +19,9 @@ if(isset($_POST["category_id"]) && !empty($_POST["category_id"]) && ($_POST["cat
 <p align="center">
 <table border="1">
   <tr>
-    <th>Company Name</th>
-    <th>Product Name</th>
-    <th>Acceptance Date</th>
+    <th>Nom d'entreprise</th>
+    <th>Nom de produit</th>
+    <th>Date d'acceptation</th>
   </tr>
   <?php  
         while($row = $query->fetch_assoc()){ ?>
@@ -39,11 +40,13 @@ if(isset($_POST["category_id"]) && !empty($_POST["category_id"]) && ($_POST["cat
 				
 		if($numberofList <= $SelectAllLimit)
 		{
+
 		
-		$queryList = $db->query("SELECT p1.CompanyID, p1.NameE as ProductName, p1.SubCategoryID, p1.ApprovalDate as ApprovalDate, c1.CompanyID as CompanyID, c1.NameE as CompanyName FROM Products as p1 JOIN Companies as c1 ON p1.CompanyID=c1.CompanyID WHERE p1.SubCategoryID=".$row['SubCategoryID']." ORDER BY CompanyName ASC LIMIT 0, $SelectAllLimit");
+		$queryList = $db->query("SELECT p1.CompanyID, p1.NameF as ProductName, p1.SubCategoryID, p1.ApprovalDate as ApprovalDate, c1.CompanyID as CompanyID, c1.NameF as CompanyName FROM Products as p1 JOIN Companies as c1 ON p1.CompanyID=c1.CompanyID WHERE p1.SubCategoryID=".$row['SubCategoryID']." ORDER BY CompanyName ASC LIMIT 0, $SelectAllLimit");
 		
 	
 		 
+
 	 
 		 
 		  $rowListCount=$queryList->num_rows; 
@@ -65,6 +68,8 @@ if(isset($_POST["category_id"]) && !empty($_POST["category_id"]) && ($_POST["cat
   </tr>
   <?php
   
+
+
 	
         } 
 		
@@ -73,6 +78,9 @@ $NextProductLimit=0;
 $pageID=1;
 $PreviousSubLimit=-2;
 $PreviousProductLimit=-2;
+
+
+
 		?>
 </table>
 </p>
@@ -85,22 +93,24 @@ $PreviousProductLimit=-2;
 <?php    
          
     }else{
-        echo 'No product list';
+        echo 'empty!';
     }
 		 
 		 
 		}
 		
 // End of Less than 15 product list
+
 // If number of products in a subcateogry is great than 15	
 		
 	else {
 		{
 	
-		$queryList = $db->query("SELECT p1.CompanyID, p1.NameE as ProductName, p1.SubCategoryID, p1.ApprovalDate as ApprovalDate, c1.CompanyID as CompanyID, c1.NameE as CompanyName FROM Products as p1 INNER JOIN Companies as c1 ON p1.SubCategoryID=".$row['SubCategoryID']." WHERE p1.CompanyID=c1.CompanyID ORDER BY CompanyName ASC LIMIT 0,$SelectAllLimit");
+		$queryList = $db->query("SELECT p1.CompanyID, p1.NameF as ProductName, p1.SubCategoryID, p1.ApprovalDate as ApprovalDate, c1.CompanyID as CompanyID, c1.NameF as CompanyName FROM Products as p1 INNER JOIN Companies as c1 ON p1.SubCategoryID=".$row['SubCategoryID']." WHERE p1.CompanyID=c1.CompanyID ORDER BY CompanyName ASC LIMIT 0,$SelectAllLimit");
 		
 	
 		 
+
 		 $rowListCount=$queryList->num_rows; 
 		
 		 	 
@@ -121,6 +131,7 @@ $PreviousProductLimit=-2;
 </tr>
 <?php
   
+
 	
         } 
   $NextProductLimit=$SelectAllLimit;		
@@ -129,6 +140,7 @@ $PreviousProductLimit=-2;
   $PreviousSubLimit=-1;
   $PreviousProductLimit=-1;
   
+
 		?>
 </table>
 <div class="pagingDiv">
@@ -140,7 +152,7 @@ $PreviousProductLimit=-2;
 <?php    
          
     }else{
-        echo 'No product listed';
+        echo 'empty!';
     }
 		 
 		 
@@ -162,13 +174,21 @@ $PreviousProductLimit=-2;
 	
 	
 }
+
+
 // Select Next page & Previous
 if(isset($_POST["subCat_limit_next"]) && isset($_POST["product_limit_next"])){
+
 $NextSubLimit =$_POST["subCat_limit_next"];
 $NextProductLimit=$_POST["product_limit_next"];
 $counter=0;
+
+
+
+
+
  
-    $querySub = $db->query("SELECT * FROM SubCategories ORDER BY TopicE ASC LIMIT $NextSubLimit, 1");
+    $querySub = $db->query("SELECT * FROM SubCategories ORDER BY TopicF ASC LIMIT $NextSubLimit, 1");
 	
 	$rowCount=$querySub->num_rows; 
     if($rowCount > 0){
@@ -176,9 +196,9 @@ $counter=0;
 <p align="center">
 <table border="1">
   <tr>
-    <th>Company Name</th>
-    <th>Product Name</th>
-    <th>Acceptance Date</th>
+    <th>Nom d'entreprise</th>
+    <th>Nom de produit</th>
+    <th>Date d'acceptation</th>
   </tr>
   <?php  
         while($row = $querySub->fetch_assoc()){ ?>
@@ -202,12 +222,14 @@ $counter=0;
 	
 		
 		
-		$queryList = $db->query("SELECT p1.CompanyID, p1.NameE as ProductName, p1.SubCategoryID, p1.ApprovalDate as ApprovalDate, c1.CompanyID as CompanyID, c1.NameE as CompanyName FROM Products as p1 JOIN Companies as c1 ON p1.CompanyID=c1.CompanyID WHERE p1.SubCategoryID=".$row['SubCategoryID']." ORDER BY CompanyName ASC LIMIT $NextProductLimit, $SelectAllLimit");
+		$queryList = $db->query("SELECT p1.CompanyID, p1.NameF as ProductName, p1.SubCategoryID, p1.ApprovalDate as ApprovalDate, c1.CompanyID as CompanyID, c1.NameF as CompanyName FROM Products as p1 JOIN Companies as c1 ON p1.CompanyID=c1.CompanyID WHERE p1.SubCategoryID=".$row['SubCategoryID']." ORDER BY CompanyName ASC LIMIT $NextProductLimit, $SelectAllLimit");
 		
 		
 		
 		
+
 		 
+
 	 $rowListCount=$queryList->num_rows; 
 		 	 
 		 // begin
@@ -227,6 +249,8 @@ $counter=0;
   </tr>
   <?php
   
+
+
  
 	
         }
@@ -238,7 +262,7 @@ $counter=0;
 		
 		$NextSubLimit=$NextSubLimit + 1;
 		
-		$queryPrevious = $db->query("SELECT SubCategoryID FROM SubCategories ORDER BY TopicE ASC LIMIT $PreviousSubLimit, 1");
+		$queryPrevious = $db->query("SELECT SubCategoryID FROM SubCategories ORDER BY TopicF ASC LIMIT $PreviousSubLimit, 1");
 		$rowCountPrevious=$queryPrevious->num_rows; 
 		
 		
@@ -278,7 +302,8 @@ $counter=0;
 				$PreviousProductLimit = (int)$PreviousProductLimit;
 				$PreviousProductLimit = $PreviousProductLimit *$SelectAllLimit;
 			
-							
+			
+				
 				$pageID=2;
 				
 			}
@@ -312,14 +337,16 @@ $counter=0;
 		}
 		
 // End of Less than 15 product list
+
 // If number of products  is great than 15	
 		
 	else {
 	
 	
-		 	$queryList = $db->query("SELECT p1.CompanyID, p1.NameE as ProductName, p1.SubCategoryID, p1.ApprovalDate as ApprovalDate, c1.CompanyID as CompanyID, c1.NameE as CompanyName FROM Products as p1 JOIN Companies as c1 ON p1.CompanyID=c1.CompanyID WHERE p1.SubCategoryID=".$row['SubCategoryID']." ORDER BY CompanyName ASC LIMIT $NextProductLimit, $SelectAllLimit");
+		 	$queryList = $db->query("SELECT p1.CompanyID, p1.NameF as ProductName, p1.SubCategoryID, p1.ApprovalDate as ApprovalDate, c1.CompanyID as CompanyID, c1.NameF as CompanyName FROM Products as p1 JOIN Companies as c1 ON p1.CompanyID=c1.CompanyID WHERE p1.SubCategoryID=".$row['SubCategoryID']." ORDER BY CompanyName ASC LIMIT $NextProductLimit, $SelectAllLimit");
 			
-			
+		
+
 		 $rowListCount=$queryList->num_rows; 
 		 
 		
@@ -341,6 +368,8 @@ $counter=0;
 </tr>
 <?php
    
+
+
 	
         } 
 		
@@ -361,7 +390,7 @@ $counter=0;
 			$PreviousSubLimit =  $NextSubLimit-1;
 			
 			
-			$queryPrevious = $db->query("SELECT SubCategoryID FROM SubCategories ORDER BY TopicE ASC LIMIT $PreviousSubLimit, 1");
+			$queryPrevious = $db->query("SELECT SubCategoryID FROM SubCategories ORDER BY TopicF ASC LIMIT $PreviousSubLimit, 1");
 		    $rowCountPrevious=$queryPrevious->num_rows; 
 		
 				if($rowCountPrevious > 0){
@@ -403,7 +432,9 @@ $counter=0;
 			$PreviousProductLimit = (int)$PreviousProductLimit;
 			$PreviousProductLimit = $PreviousProductLimit *$SelectAllLimit;
 			
-					
+	
+		
+			
 			$pageID=2;
 					
 				}
@@ -423,6 +454,7 @@ $counter=0;
 		{
 		 $NextProductLimit	=0;
 		 $NextSubLimit=$NextSubLimit+1;
+
 		
 		}
 		else
@@ -439,34 +471,48 @@ $counter=0;
 		
 		?>
 </table>
-</p>
 <div class="pagingDiv">
   <p>
     <?php pagingAll ($NextSubLimit, $NextProductLimit, $PreviousSubLimit, $PreviousProductLimit, $pageID);?>
   </p>
 </div>
-
+</p>
 <?php    
          
     }else{
-        echo 'No product list';
+        echo 'empty!';
     }
 		 
 		 
 		}
 		
+
 		 
+
 		
  }?>
 <?php
 		
 		
     }else{
-       echo 'No data for Select All option';
+       echo 'empty!';
     }
+
 	
 	}
+
 // End of Select All Next Page
+
+
+
+
+
+
+
+
+
+
+
 // Select All Last Page
 if(isset($_POST["SelectAllLastpage"])){
 	
@@ -474,8 +520,8 @@ if(isset($_POST["SelectAllLastpage"])){
 <p align="center">
 <table border="1">
   <tr>
-    <th>Company Name</th>
-    <th>Product Name</th>
+    <th>Nom d'entreprise</th>
+    <th>Nom de produit</th>
     <th>Acceptance Date</th>
   </tr>
   <?php  
@@ -483,7 +529,7 @@ if(isset($_POST["SelectAllLastpage"])){
 	$NumberSubIDs = $db->query("SELECT * FROM SubCategories")->num_rows; 
 	$lastSubID=$NumberSubIDs-1;
 		
-	$query = $db->query("SELECT * FROM SubCategories ORDER BY TopicE ASC LIMIT $lastSubID, 1");
+	$query = $db->query("SELECT * FROM SubCategories ORDER BY TopicF ASC LIMIT $lastSubID, 1");
 	$rowCount = $query->num_rows;
 	 if($rowCount > 0){ 
 	 while($rowList = $query->fetch_assoc()){ ?>
@@ -492,7 +538,7 @@ if(isset($_POST["SelectAllLastpage"])){
   </tr>
   <?php  
 	 
-	 $queryList = $db->query("SELECT p1.CompanyID, p1.NameE as ProductName, p1.SubCategoryID, p1.ApprovalDate as ApprovalDate, c1.CompanyID as CompanyID, c1.NameE as CompanyName FROM Products as p1 JOIN Companies as c1 ON p1.CompanyID=c1.CompanyID WHERE p1.SubCategoryID=".$rowList['SubCategoryID']." ORDER BY CompanyName ASC");
+	 $queryList = $db->query("SELECT p1.CompanyID, p1.NameF as ProductName, p1.SubCategoryID, p1.ApprovalDate as ApprovalDate, c1.CompanyID as CompanyID, c1.NameF as CompanyName FROM Products as p1 JOIN Companies as c1 ON p1.CompanyID=c1.CompanyID WHERE p1.SubCategoryID=".$rowList['SubCategoryID']." ORDER BY CompanyName ASC");
 	 
 	 $numberOfItems = $queryList->num_rows;
 		
@@ -520,19 +566,19 @@ if(isset($_POST["SelectAllLastpage"])){
 		 // Begining of Previous page variables
   $PreviousSubLimit = $lastSubID-1;
   
+
   
   $PreviousProductLimit = 0;
   // end of previous page variables
 		
 		 ?>
 </table>
-</p>
 <div class="pagingDiv">
   <p>
     <?php pagingAll (0, 0,$PreviousSubLimit, $PreviousProductLimit,0);?>
   </p>
 </div>
-
+</p>
 <?php	
 		}
 		
@@ -543,12 +589,14 @@ if(isset($_POST["SelectAllLastpage"])){
 	        $start=(int)$start*$SelectAllLimit;
 			
 			
+
 			$limit = (float)($numberOfItems / $SelectAllLimit);
             $limit = ($limit - (int)$limit)*$SelectAllLimit;
 			
 			
+
 			
-			$queryList = $db->query("SELECT p1.CompanyID, p1.NameE as ProductName, p1.SubCategoryID, p1.ApprovalDate as ApprovalDate, c1.CompanyID as CompanyID, c1.NameE as CompanyName FROM Products as p1 JOIN Companies as c1 ON p1.CompanyID=c1.CompanyID WHERE p1.SubCategoryID=".$rowList['SubCategoryID']." ORDER BY CompanyName ASC LIMIT $start, $limit");
+			$queryList = $db->query("SELECT p1.CompanyID, p1.NameF as ProductName, p1.SubCategoryID, p1.ApprovalDate as ApprovalDate, c1.CompanyID as CompanyID, c1.NameF as CompanyName FROM Products as p1 JOIN Companies as c1 ON p1.CompanyID=c1.CompanyID WHERE p1.SubCategoryID=".$rowList['SubCategoryID']." ORDER BY CompanyName ASC LIMIT $start, $limit");
 			
 			 while($rowList = $queryList->fetch_assoc()){ 
         
@@ -561,46 +609,56 @@ if(isset($_POST["SelectAllLastpage"])){
     </p></td>
 </tr>
 <?php
+
+
+
+
 	
         } 
 		
 		// Beginning of Previous Page variables
 $PreviousSubLimit = $lastSubID;
 $PreviousProductLimit =  $numberOfItems - $SelectAllLimit;
+
 // End of previous page variables
+
 		?>
 </table>
-</p>
 <div class="pagingDiv">
   <p>
     <?php pagingAll (0, 0,$PreviousSubLimit,$PreviousProductLimit , 0);?>
   </p>
 </div>
-
+</p>
 <?php
 		
 		}
 	 } 
- 
+
 	 
 }
 	 }
+
+
+
 function pagingAll ($SubCatLimitNext, $ProductLimitNext, $SubCatLimitPrevious, $ProductLimitPrevious, $pageID)
 {    
 	global $db;
 	$NumberOfProducts = $db->query("SELECT * FROM Products")->num_rows; 
   
-	echo 'Number of items found: <strong>';
+	   echo 'Nombre d\'items : <strong>';
 	echo $NumberOfProducts;
 	echo '</strong><br /><br />';
+
+
 	
 	if($pageID==1)
 		{
 			
 						
-            echo "<a href='#' onclick='SelectAllNextPage($SubCatLimitNext,$ProductLimitNext,$pageID)'>NEXT</a>";
+            echo "<a href='#' onclick='SelectAllNextPage($SubCatLimitNext,$ProductLimitNext,$pageID)'>Suivant >></a>";
 			echo "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
-			echo "<a href='#' onclick='SelectAllLastPage()'>Last Page</a>";	
+			echo "<a href='#' onclick='SelectAllLastPage()'>Dernière page</a>";	
 	        echo "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
 	  
 		}
@@ -608,54 +666,66 @@ function pagingAll ($SubCatLimitNext, $ProductLimitNext, $SubCatLimitPrevious, $
      elseif($pageID==0)
 	 {
 		  
-		 	echo "<a href='#' onclick='SelectAllFirstPage()'>First Page</a>";
+		 	echo "<a href='#' onclick='SelectAllFirstPage()'>Première page</a>";
 	        echo "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
-			echo "<a href='#' onclick='SelectAllNextPage($SubCatLimitPrevious,$ProductLimitPrevious,$pageID)'>PREVIOUS</a>";
+			echo "<a href='#' onclick='SelectAllNextPage($SubCatLimitPrevious,$ProductLimitPrevious,$pageID)'><< Précédent </a>";
 		 
 	  }		
 		
 else
 	{
-		  	echo "<a href='#' onclick='SelectAllFirstPage()'>First Page</a>";
+		  	echo "<a href='#' onclick='SelectAllFirstPage()'>Première page</a>";
 	        echo "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
 			
 			If($SubCatLimitPrevious==0 && $ProductLimitPrevious==0)
 			{
-			echo "<a href='#' onclick='SelectAllFirstPage()'>PREVIOUS</a>";
+			echo "<a href='#' onclick='SelectAllFirstPage()'><< Précédent</a>";
 			}
 			else
 			{		
-			echo "<a href='#' onclick='SelectAllNextPage($SubCatLimitPrevious,$ProductLimitPrevious,$pageID)'>PREVIOUS</a>";
+			echo "<a href='#' onclick='SelectAllNextPage($SubCatLimitPrevious,$ProductLimitPrevious,$pageID)'><< Précédent</a>";
 			}
 			echo "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
-			echo "<a href='#' onclick='SelectAllNextPage($SubCatLimitNext,$ProductLimitNext,$pageID)'>NEXT</a>";
+			echo "<a href='#' onclick='SelectAllNextPage($SubCatLimitNext,$ProductLimitNext,$pageID)'>Suivant >></a>";
 			echo "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
-			echo "<a href='#' onclick='SelectAllLastPage()'>Last Page</a>";	
+			echo "<a href='#' onclick='SelectAllLastPage()'>Dernière page</a>";	
 	        echo "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+
+
 	}
 		
+
 }
+
+// Rest of the codes should be here
+
+
+
 if(isset($_POST["category_id"]) && !empty($_POST["category_id"]) && ($_POST["category_id"]!="SelectAll")){
 	
+
+	
     //Get all subcategory data
-    $query = $db->query("SELECT * FROM SubCategories WHERE BINARY CategoryID = ".$_POST['category_id']." ORDER BY TopicE ASC");
+    $query = $db->query("SELECT * FROM SubCategories WHERE BINARY CategoryID = ".$_POST['category_id']." ORDER BY TopicF ASC");
     
     //Count total number of rows
     $rowCount = $query->num_rows;
     
     //Display subcategory list
     if($rowCount > 0){
-        echo '<option value="">Select Sub Category</option>';
+        echo '<option value="">Choisir une sous-catégorie</option>';
         while($row = $query->fetch_assoc()){ 
-            echo '<option value="'.$row['SubCategoryID'].'">'.$row['TopicE'].'</option>';
+            echo '<option value="'.$row['SubCategoryID'].'">'.$row['TopicF'].'</option>';
         }
     }else{
-        echo '<option value="">Sub Category not available</option>';
-		echo 'Select Sub Category';
+        echo '<option value="">empty!</option>';
+		echo 'Choisir une sous-catégorie';
     }
 	
 	
 }
+
+
 if(isset($_POST["subcategory_id"]) && !empty($_POST["subcategory_id"]) && isset($_POST["page_id"])){
     //Get all product and company data
 	
@@ -672,7 +742,7 @@ if(isset($_POST["subcategory_id"]) && !empty($_POST["subcategory_id"]) && isset(
 	
 	
 	
-   $query = $db->query("SELECT p1.CompanyID, p1.NameE as ProductName, p1.SubCategoryID, p1.ApprovalDate as ApprovalDate, c1.CompanyID as CompanyID, c1.NameE as CompanyName FROM Products as p1 INNER JOIN Companies as c1 ON p1.SubCategoryID=".$_POST['subcategory_id']." AND p1.CompanyID=c1.CompanyID ORDER BY CompanyName ASC LIMIT $start, $limit");
+   $query = $db->query("SELECT p1.CompanyID, p1.NameF as ProductName, p1.SubCategoryID, p1.ApprovalDate as ApprovalDate, c1.CompanyID as CompanyID, c1.NameF as CompanyName FROM Products as p1 INNER JOIN Companies as c1 ON p1.SubCategoryID=".$_POST['subcategory_id']." WHERE p1.CompanyID=c1.CompanyID ORDER BY CompanyName ASC LIMIT $start, $limit");
 	
 	// for paging purpse
 	$query2 = $db->query("SELECT * FROM Products WHERE BINARY SubCategoryID = ".$_POST['subcategory_id']);
@@ -689,49 +759,47 @@ if(isset($_POST["subcategory_id"]) && !empty($_POST["subcategory_id"]) && isset(
     if($rowCount > 0){ 
     
 	?>
-    
-        <p align="center">
-        
-     
-        <table border="1">
-   
-        <tr><th>Company Name</th>
-        <th>Product Name</th>
-        <th>Acceptance Date</th>
-        </tr>
-        
-        <?php
+<p align="center">
+<table border="1">
+  <tr>
+    <th>Nom d'entreprise</th>
+    <th>Nom de produit</th>
+    <th>Date d'acceptation</th>
+  </tr>
+  <?php
         while($row = $query->fetch_assoc()){ 
         
 	?>
-
-<tr>
-  <td><p><a href="#" id="company" onclick="AjaxCall('<?php echo $row['CompanyID'];?>');"><?php echo $row['CompanyName'] ?></a></p></td>
-  <td><p><?php echo $row['ProductName']; ?></p></td>
-  <td><p><?php FormatDate($row['ApprovalDate']) ?></p></td>
-</tr>
-<?php
+  <tr>
+    <td><p><a href="#" id="company" onclick="AjaxCall('<?php echo $row['CompanyID'];?>');"><?php echo $row['CompanyName'] ?></a></p></td>
+    <td><p><?php echo $row['ProductName']; ?></p></td>
+    <td><p>
+        <?php FormatDate($row['ApprovalDate']) ?>
+      </p></td>
+  </tr>
+  <?php
 	
         } ?>
-        
-		</table>
-        
-           <div class="pagingDiv"><?php paging ($_POST["subcategory_id"],$total,$_POST["page_id"], $TotalCount);?></div></p>
-     <?php    
+</table>
+<div class="pagingDiv">
+  <?php paging ($_POST["subcategory_id"],$total,$_POST["page_id"], $TotalCount);?>
+</div>
+</p>
+<?php    
          
     }else{
-        echo 'NO data';
+        echo 'empty!';
     }
 }
-  ?>
 
- <?php
+  ?>
+<?php
   
   if(isset($_POST["company_id"]) && !empty($_POST["company_id"])){
     //Get all product and company data
 	
 	$CompID=$_POST['company_id'];
-    $query = $db->query("SELECT * FROM Products WHERE CompanyID = '$CompID' ORDER BY NameE ASC");
+    $query = $db->query("SELECT * FROM Products WHERE CompanyID = '$CompID' ORDER BY NameF ASC");
 	
 	if($query === false) 
 { 
@@ -741,65 +809,70 @@ if(isset($_POST["subcategory_id"]) && !empty($_POST["subcategory_id"]) && isset(
     
     //Count total number of rows
     $rowCount = $query->num_rows;
-	  	echo "Company: ";
-	CompanyName($CompID);
     
+	echo "d'entreprise: ";
+	CompanyName($CompID);
+	
     //Display company and product list
     if($rowCount > 0){
 		 ?>
-		
-        <p align="center"><table border="1">
-        <tr><th>Category (Sub-Category)</th>
-        <th>Product Name</th>
-        <th>Acceptance Date</th>
-        </tr>
-        
-       <?php
-        while($row = $query->fetch_assoc()){ 
-        
-	 ?>
-
+<p align="center">
+<table border="1">
 <tr>
-  <td><p><?php CategorySubCategoryName($row['SubCategoryID']); ?></p></td>	
-  <td><p><?php echo $row['NameE']; ?></p></td>
-   <td><p><?php FormatDate($row['ApprovalDate']) ?></p></td>
+  <th>Catégorie (sous-catégorie)</th>
+  <th>Nom de produit</th>
+  <th>Date d'acceptation</th>
+</tr>
+<?php
+        while($row = $query->fetch_assoc()){   
+        
+
+   ?>
+<tr>
+  <td><p>
+      <?php CategorySubCategoryName($row['SubCategoryID']); ?>
+    </p></td>
+  <td><p><?php echo $row['NameF']; ?></p></td>
+  <td><p>
+      <?php FormatDate($row['ApprovalDate']) ?>
+    </p></td>
 </tr>
 <?php
 	
         }
 		 echo '</table></p>';
     }else{
-        echo 'NO data2';
+        echo 'empty!';
     }
 }
+
+// End of Rest of the codes
+
   ?>
-  
-  <?php
+<?php
   
   Function CompanyName($CompanyID)
   {  
+
   global $db;
   
-  if ($result = $db->query("SELECT * FROM Companies WHERE BINARY CompanyID='$CompanyID'")) 
-  {
-     if($result->num_rows > 0)
-     {
-               while($row = $result->fetch_assoc())
-	       		   { 
-			   echo $row['NameE'];
+  if ($result = $db->query("SELECT * FROM Companies WHERE BINARY CompanyID='$CompanyID'")) {
+     if($result->num_rows > 0){
+               while($row = $result->fetch_assoc()){ 
+			   echo $row['NameF'];
 			   }
-     }
+	 }
         
 	/* free result set */
     $result->close();
+}
+	else { printf("error!");}  
+
   }
-	else { 
-		printf("<br />unable to connnect to Companies table");
-	     }  
-  }
-		
-		
-		
+  
+  
+ 
+  
   Function FormatDate($DateFromDB)
   {
   
@@ -823,16 +896,17 @@ if(isset($_POST["subcategory_id"]) && !empty($_POST["subcategory_id"]) && isset(
        
         while($row = $query->fetch_assoc()){ 
 		
-		    echo "Category :<strong> ";
+		    echo "Catégorie  :<strong> ";
 			CategoryName($row['CategoryID']);
 			echo "</strong><br />";
-            echo "Sub-Category : <strong>".$row['TopicE']."</strong><br /><br />";
-			echo "(Conditions of use:".$row['condition_use_en'].")";
+            echo "Sous-catégorie : <strong>".$row['TopicF']."</strong><br /><br />";
+			echo "(Conditions d'utilisation:".$row['condition_use_fr'].")";
         }
     }else{
-        echo "No Sub-Category";
+        echo "empty!";
     }
 }
+
   Function CategoryName($CategoryID)
   {
 	  global $db;
@@ -846,12 +920,13 @@ if(isset($_POST["subcategory_id"]) && !empty($_POST["subcategory_id"]) && isset(
     if($rowCount > 0){
        
         while($row = $query->fetch_assoc()){ 
-            echo $row['HeaderE'];
+            echo $row['HeaderF'];
         }
     }else{
-        echo "No Category";
+        echo "empty!";
     }
 }
+
 Function CategorySubCategoryName($SubCategoryID)
   {
 	  global $db;
@@ -866,50 +941,47 @@ Function CategorySubCategoryName($SubCategoryID)
        
         while($row = $query->fetch_assoc()){ 
 		
-		    echo  CategoryName($row['CategoryID'])."(".$row['TopicE'].")";
+		    echo  CategoryName($row['CategoryID'])." (".$row['TopicF'].")";
            
 			
         }
     }else{
-        echo "No data";
+        echo "empty!";
     }
 }
-		
-  
+
+
 function paging ($subID, $total, $pageid, $TotalCount)
 {
 	
 	?>
-	
-	<div class="divClass">
-Number of items found: <?php echo $TotalCount; ?> <br />
-Page: <?php if ($pageid==0) echo $pageid+1; else echo $pageid; ?>/<?php echo $total; ?> <br /><br />
+<div class="divClass"> Nombre d'items : <?php echo $TotalCount; ?> <br />
+  Page:
+  <?php if ($pageid==0) echo $pageid+1; else echo $pageid; ?>
+  /<?php echo $total; ?> <br />
+  <br />
 </div>
-	
-	<?php
+<?php
 	echo "<br /><br /><br />";
 	if($pageid>1)
 {
 	$id=$pageid-1;
-	echo "<div class='divClass'><a href='#' onclick='pages($subID, $id)'>Previous</a></div>"; 
+	echo "<div class='divClass'><a href='#' onclick='pages($subID, $id)'><< Précédent</a></div>"; 
 }
 ?>
-
-
-
 <?php
 if($pageid!=$total && $total!=1)
 {
 	if ($pageid==0)
 	{
 	$id=$pageid+2;
-	echo "<div class='divClass'><a href='#' onclick='pages($subID, $id)'>NEXT</a></div><br />"; 
+	echo "<div class='divClass'><a href='#' onclick='pages($subID, $id)'>Suivant >></a></div><br />"; 
 	}
 	
 	else
 	{
 	$id=$pageid+1;
-	echo "<div class='divClass'><a href='#' onclick='pages($subID, $id)'>NEXT</a></div><br />"; 
+	echo "<div class='divClass'><a href='#' onclick='pages($subID, $id)'>Suivant >></a></div><br />"; 
 	}
 	
 }
@@ -932,6 +1004,7 @@ echo "<ul>";
 		}
 echo "</ul>";
 ?>
+<?php } 
+// End of regular paging
 
-	
-<?php } ?>
+?>
