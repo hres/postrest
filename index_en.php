@@ -1,5 +1,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script type="text/javascript">
+
+	
 $(document).ready(function(){
     $('#category').on('change',function(){
         var categoryID = $(this).val();
@@ -34,7 +36,7 @@ $(document).ready(function(){
             $.ajax({
                 type:'POST',
                 url:'ajaxData.php',
-                data:{'subcategory_id':+subcategoryID,'page_id':+pageID},
+                data:{'subcategory_id':subcategoryID,'page_id':+pageID},
 			    success:function(html){
 				$('#displayresults').html(html);
                 }
@@ -44,12 +46,30 @@ $(document).ready(function(){
         }
     });
 	
-	
-	
+
 	});
 	
+	function SelectAllSubFirstPage (CategoryID) {
+		var subcategoryID= 'SelectAll '+CategoryID;
+		var pageID = 0;
+        if(subcategoryID){
+            $.ajax({
+                type:'POST',
+                url:'ajaxData.php',
+                data:{'subcategory_id':subcategoryID,'page_id':+pageID},
+			    success:function(html){
+				$('#displayresults').html(html);
+                }
+            }); 
+        }else{
+            $('#displayresults').html('no data found'); 
+        }
+  
+		
+	}
+	
 
-function SelectAllFirstPage() {
+	function SelectAllFirstPage() {
 		
 		var categoryIDAll = 'SelectAll';
 		if(categoryIDAll){
@@ -72,18 +92,42 @@ function SelectAllFirstPage() {
         }
 		
 		
-}
+	}
 	
-function SelectAllNextPage(SubCatLimit,ProductLimit, pageID) {
+	
+	function SelectAllNextPage(SubCatLimit,ProductLimit, pageID) {
 		
 		var SubCatLimit=SubCatLimit;
 		var ProductLimit=ProductLimit;
-		var pageID=pageID
+		var pageID=pageID;
 		if(SubCatLimit || ProductLimit){
 			 $.ajax({
                 type:'POST',
                 url:'ajaxData.php',
 				data:{'subCat_limit_next':+SubCatLimit,'product_limit_next':+ProductLimit, 'page_id':+pageID},
+				success:function(html){
+					$('#subcategory').html('<option value="">Select All</option>');		
+					$('#displayresults').html(html); 
+				}
+				
+				});
+				
+			
+		}
+	}
+	
+	
+	function SelectAllSubNextPage(CategoryID, SubCatLimit,ProductLimit, pageID) {
+		
+		var SubCatLimit=SubCatLimit;
+		var ProductLimit=ProductLimit;
+		var pageID=pageID;
+		var CategoryID=CategoryID;
+		if(SubCatLimit || ProductLimit || CategoryID){
+			 $.ajax({
+                type:'POST',
+                url:'ajaxData.php',
+				data:{'category_SubSelectAll_ID':+CategoryID,'subCat_selectall_next':+SubCatLimit,'product_SubSelectAll_next':+ProductLimit, 'page_subSelectAll_id':+pageID},
 				success:function(html){
 					$('#subcategory').html('<option value="">Select All</option>');		
 					$('#displayresults').html(html); 
@@ -119,11 +163,15 @@ function SelectAllNextPage(SubCatLimit,ProductLimit, pageID) {
 				}
 				
 				
-}
+	}
+
+	
+
 
 	
 	
-function AjaxCall(Cid) {
+	
+	function AjaxCall(Cid) {
 	
      var CompanyID=Cid;
         if(CompanyID){
@@ -140,9 +188,11 @@ function AjaxCall(Cid) {
        }
   
     
-    }	
+    }
 	
-function pages(sID, pID) {
+
+	
+	function pages(sID, pID) {
     var subcategoryID = sID;
 	var pageID = pID;
         if(subcategoryID){
@@ -155,11 +205,11 @@ function pages(sID, pID) {
                 }
             }); 
         }else{
-            $('#city').html('no data found'); 
+            $('#displayresults').html('no data found'); 
         }
     
     }
-	
+
 
 	
 </script>
