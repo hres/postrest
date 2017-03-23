@@ -35,18 +35,37 @@ $(document).ready(function(){
             $.ajax({
                 type:'POST',
                 url:'ajaxData_fr.php',
-                data:{'subcategory_id':+subcategoryID,'page_id':+pageID},
+                data:{'subcategory_id':subcategoryID,'page_id':+pageID},
 			    success:function(html){
 				$('#displayresults').html(html);
                 }
             }); 
         }else{
-            $('#displayresults').html('empty!'); 
+            $('#displayresults').html('no data found'); 
         }
     });
 	
 
 	});
+	
+	function SelectAllSubFirstPage (CategoryID) {
+		var subcategoryID= 'SelectAll '+CategoryID;
+		var pageID = 0;
+        if(subcategoryID){
+            $.ajax({
+                type:'POST',
+                url:'ajaxData_fr.php',
+                data:{'subcategory_id':subcategoryID,'page_id':+pageID},
+			    success:function(html){
+				$('#displayresults').html(html);
+                }
+            }); 
+        }else{
+            $('#displayresults').html('no data found'); 
+        }
+  
+		
+	}
 	
 
 	function SelectAllFirstPage() {
@@ -121,6 +140,30 @@ $(document).ready(function(){
 				
 				
 	}
+	
+	
+		function SelectAllSubNextPage(CategoryID, SubCatLimit,ProductLimit, pageID) {
+		
+		var SubCatLimit=SubCatLimit;
+		var ProductLimit=ProductLimit;
+		var pageID=pageID;
+		var CategoryID=CategoryID;
+		if(SubCatLimit || ProductLimit || CategoryID){
+			 $.ajax({
+                type:'POST',
+                url:'ajaxData_fr.php',
+				data:{'category_SubSelectAll_ID':+CategoryID,'subCat_selectall_next':+SubCatLimit,'product_SubSelectAll_next':+ProductLimit, 'page_subSelectAll_id':+pageID},
+				success:function(html){
+					$('#subcategory').html('<option value="">Select All</option>');		
+					$('#displayresults').html(html); 
+				}
+				
+				});
+				
+			
+		}
+	}
+	
 
 	
 
@@ -167,11 +210,7 @@ $(document).ready(function(){
     
     }
     
-	
-	
 
-
-	
 </script>
 
 
@@ -218,9 +257,8 @@ $db->set_charset("utf8");
     exit();
 }
 	
-	
 //Get all country data
-$query = $db->query("SELECT * FROM Categories ORDER BY HeaderF ASC");
+$query = $db->query("SELECT * FROM Categories ORDER BY REPLACE(HeaderF,'\'','') ASC");
 
 
 //Count total number of rows
@@ -248,6 +286,7 @@ $rowCount = $query->num_rows;
 </select>
 
 </p>
+
 <span id="displayy" name="displayy"></span>
 
 <span id="displayresults" name="displayresults"></span>
