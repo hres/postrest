@@ -1796,7 +1796,7 @@ Function SubCategoryName($SubCategoryID)
             echo "Category :<strong> ";
             CategoryName($row['CategoryID']);
             echo "</strong><br />";
-            echo "Sub-Category : <strong>" . $row['TopicE'] . "</strong><br /><br />";
+            echo "Sub-Category : <strong>" . $row['TopicE'] ." (". $row['sub_category_code'] .")</strong><br /><br />";
             echo "(Conditions of use:" . $row['condition_use_en'] . ")";
         }
     } else {
