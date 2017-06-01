@@ -9,6 +9,19 @@
 <meta content="width=device-width,initial-scale=1" name="viewport">
 <!-- Meta data -->
 <meta name="description" content="Web Experience Toolkit (WET) includes reusable components for building and maintaining innovative Web sites that are accessible, usable, and interoperable. These reusable components are open source software and free for use by departments and external Web communities">
+
+<!-- added for accepted dropdown list start -->
+<script src="./jquery.min.js"></script>
+<script src="./acceptedlist.js"></script>
+<style type="text/css">
+li{
+	list-style: none;
+	display:inline-block;
+	padding:6px;
+}
+</style>
+<!-- added for accepted dropdown list end-->
+
 <!-- Meta data-->
 <!--[if gte IE 9 | !IE ]><!-->
 <link href="./GCWeb/assets/favicon.ico" rel="icon" type="image/x-icon">
@@ -20,6 +33,7 @@
 		<link rel="stylesheet" href="./GCWeb/css/ie8-theme.min.css" />
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 		<script src="./wet-boew/js/ie8-wet-boew.min.js"></script>
+        
 		<![endif]-->
 <!--[if lte IE 9]>
 		
@@ -113,114 +127,61 @@
 </header>
 <main role="main" property="mainContentOfPage" class="container">
 <h1 property="name" id="wb-cont">Canada.ca theme</h1>
-<ul class="list-inline">
-<li><a class="btn btn-primary" href="docs/ref/GCWeb/GCWeb-en.html">Documentation</a></li>
-<li><a class="btn btn-primary" href="https://github.com/wet-boew/GCWeb/issues/new?title=Canada.ca%20theme:%20">Questions or comments?</a></li>
-</ul>
+
 <section>
-<h2>English</h2>
+
 <div class="row"><div class="col-md-8">
-<ul>
-<li><a href="home-en.html">Home page</a></li>
-<li><a href="theme-en.html">Theme landing page</a></li>
-<li><a href="topic-en.html">Topic landing page</a></li>
-<li><a href="institution-en.html">Institutional profile for large institutions</a></li>
-<li><a href="institution-arms-en.html">Institutional profile for arm’s-length institutions</a></li>
-<li><a href="institution-small-en.html">Institutional profile for small institutions</a></li>
-<li><a href="content-en.html">Content page</a></li>
-<li><a href="content-signedoff-en.html">Content page - Signed Off</a></li>
-<li><a href="content-signedon-en.html">Content page - Signed On</a></li>
-<li><a href="components-en.html">Components page</a></li>
-<li><a href="video-en.html">Video content page</a></li>
-<li><a href="feedback-en.html">Feedback form</a></li>
-<li><a href="widgets-en.html">Widget page</a></li>
-<li><a href="localnav/task1/index-en.html">Section menu examples</a></li>
-<li><a href="splashpage.html">Splash page</a></li>
-<li><a href="servermessage-en.html">Server message page</a></li>
-<li><a href="servermessage-en-fr.html">Server message page (English/French)</a></li>
-<li><a href="campaign-en.html">Campaign</a></li>
-<li><a href="event-en.html">Event</a></li>
-<li><a href="service-en.html">Simple service initiation landing page</a></li>
-<li><a href="advancedservice/index-en.html">Advanced service initiation pages</a></li>
-<li><a href="dept-en.html">Departments and agencies</a></li>
-<li><a href="ministerial-en.html">Ministerial profile</a></li>
-<li><a href="act-en.html">Acts</a></li>
-<li><a href="regulations-en.html">Regulations</a></li>
-<li><a href="topic-lowest-en.html">Lowest level topic page</a></li>
-<li><a href="organizational-en.html">Organizational profile</a></li>
-<li><a href="organizational-carousel-en.html">Organizational profile with carousel</a></li>
-<li><a href="archived-en.html">Archived page</a></li>
-<li><a href="404-en.html">404 error page</a></li>
-<li><a href="404-en-fr.html">404 error page (English/French)</a></li>
-</ul>
+
+<p>&nbsp;</p>
+<!-- beginning of Dropdown list scripts -->
+
+<?php
+//Include database configuration file
+include('config.php');
+$db = new mysqli($host, $username, $password, $databasename);
+$db->set_charset("utf8");
+
+//Get all country data
+$query = $db->query("SELECT * FROM Categories ORDER BY HeaderE ASC");
+
+
+//Count total number of rows
+$rowCount = $query->num_rows;
+?>
+<select name="category" id="category">
+    <option value="">Select Category</option>
+    <option value="SelectAll">Select All</option>
+    
+    <?php
+    if($rowCount > 0){
+        while($row = $query->fetch_assoc()){ 
+            echo '<option value="'.$row['CategoryID'].'">'.$row['HeaderE'].'</option>';
+        }
+    }else{
+        echo '<option value="">Categories are not available</option>';
+    }
+    ?>
+</select>
+</p>
+<p>
+
+<select name="subcategory" id="subcategory">
+    <option value="">Select category first</option>
+</select>
+
+</p>
+
+<span id="displayy" name="displayy"></span>
+
+<span id="displayresults" name="displayresults"></span>
+
+<!-- end of Dropdown list scripts -->
+
 </div><div class="col-md-4">
-<section>
-<h3>Themes plugins</h3>
-<ul>
-<li><a href="demos/data-json/data-json-en.html">Data JSON</a> (<a href="demos/data-json/data-json-doc-en.html">Documentation</a>)</li>
-<li><a href="demos/data-json/template-en.html">Template HTML5</a> (<a href="demos/data-json/data-json-doc-en.html">Documentation</a>)</li>
-<li><a href="demos/jsonmanager/jsonmanager-en.html">JSON Manager</a> (<a href="demos/jsonmanager/jsonmanager-doc-en.html">Documentation</a>)</li>
-<li><a href="demos/urlmapping/tblfilter-en.html">URL Mapping - Table filtering</a> (<a href="demos/urlmapping/urlmapping-doc-en.html">Documentation</a>)</li>
-<li><a href="demos/urlmapping/ajax-en.html">URL Mapping - Ajax</a> (<a href="demos/urlmapping/urlmapping-doc-en.html">Documentation</a>)</li>
-<li><a href="demos/urlmapping/patches-en.html">URL Mapping - Patching JSON</a> (<a href="demos/urlmapping/urlmapping-doc-en.html">Documentation</a>)</li>
-<li><a href="demos/fieldflow/fieldflow-en.html">Field flow</a> (<a href="demos/fieldflow/fieldflow-doc-en.html">Documentation</a>)</li>
-<li><a href="demos/fieldflow/basic-en.html">Field flow basic configuration</a> (<a href="demos/fieldflow/fieldflow-doc-en.html">Documentation</a>)</li>
-<li><a href="demos/fieldflow/advanced-en.html">Field flow advanced</a> (<a href="demos/fieldflow/fieldflow-doc-en.html">Documentation</a>)</li>
-</ul>
-</section>
+
 </div></div>
 </section>
-<section>
-<h2>French</h2>
-<div class="row"><div class="col-md-8">
-<ul>
-<li><a href="home-fr.html">Home page</a></li>
-<li><a href="theme-fr.html">Theme landing page</a></li>
-<li><a href="topic-fr.html">Topic landing page</a></li>
-<li><a href="institution-fr.html">Institutional profile for large institutions</a></li>
-<li><a href="institution-arms-fr.html">Institutional profile for arm’s-length institutions</a></li>
-<li><a href="institution-small-fr.html">Institutional profile for small institutions</a></li>
-<li><a href="content-fr.html">Content page</a></li>
-<li><a href="components-fr.html">Components page</a></li>
-<li><a href="video-fr.html">Video content page</a></li>
-<li><a href="feedback-fr.html">Feedback form</a></li>
-<li><a href="widgets-fr.html">Widget page</a></li>
-<li><a href="localnav/task1/index-fr.html">Section menu examples</a></li>
-<li><a href="splashpage.html">Splash page</a></li>
-<li><a href="servermessage-fr.html">Server message page</a></li>
-<li><a href="servermessage-fr-en.html">Server message page (French/English)</a></li>
-<li><a href="campaign-fr.html">Campaign</a></li>
-<li><a href="event-fr.html">Event</a></li>
-<li><a href="service-fr.html">Simple service initiation landing page</a></li>
-<li><a href="advancedservice/index-fr.html">Advanced service initiation pages</a></li>
-<li><a href="dept-fr.html">Departments and agencies</a></li>
-<li><a href="ministerial-fr.html">Ministerial profile</a></li>
-<li><a href="act-fr.html">Acts</a></li>
-<li><a href="regulations-fr.html">Regulations</a></li>
-<li><a href="topic-lowest-fr.html">Lowest level topic page</a></li>
-<li><a href="organizational-fr.html">Organizational profile</a></li>
-<li><a href="organizational-carousel-fr.html">Organizational profile with carousel</a></li>
-<li><a href="archived-fr.html">Archived page</a></li>
-<li><a href="404-fr.html">404 error page</a></li>
-<li><a href="404-fr-en.html">404 error page (French/English)</a></li>
-</ul>
-</div><div class="col-md-4">
-<section>
-<h3>Themes plugins</h3>
-<ul>
-<li><a href="demos/data-json/data-json-fr.html" hreflang="fr">Data JSON</a> (<a hreflang="fr" href="demos/data-json/data-json-doc-fr.html">Documentation</a>)</li>
-<li><a href="demos/data-json/template-fr.html" hreflang="fr">Template HTML5</a> (<a hreflang="fr" href="demos/data-json/data-json-doc-fr.html">Documentation</a>)</li>
-<li><a href="demos/jsonmanager/jsonmanager-fr.html" hreflang="fr">JSON Manager</a> (<a href="demos/jsonmanager/jsonmanager-doc-fr.html">Documentation</a>)</li>
-<li><a href="demos/urlmapping/tblfilter-fr.html" hreflang="fr">URL Mapping - Table filtering</a> (<a hreflang="fr" href="demos/urlmapping/urlmapping-doc-fr.html">Documentation</a>)</li>
-<li><a href="demos/urlmapping/ajax-fr.html" hreflang="fr">URL Mapping - Ajax</a> (<a hreflang="fr" href="demos/urlmapping/urlmapping-doc-fr.html">Documentation</a>)</li>
-<li><a href="demos/urlmapping/patches-fr.html" hreflang="fr">URL Mapping - Patching JSON</a> (<a hreflang="fr" href="demos/urlmapping/urlmapping-doc-fr.html">Documentation</a>)</li>
-<li><a href="demos/fieldflow/fieldflow-fr.html" hreflang="fr">Field flow</a> (<a hreflang="fr" href="demos/fieldflow/fieldflow-doc-fr.html">Documentation</a>)</li>
-<li><a href="demos/fieldflow/basic-fr.html" hreflang="fr">Field flow basic configuration</a> (<a hreflang="fr" href="demos/fieldflow/fieldflow-doc-fr.html">Documentation</a>)</li>
-<li><a href="demos/fieldflow/advanced-fr.html" hreflang="fr">Field flow advanced</a> (<a hreflang="fr" href="demos/fieldflow/fieldflow-doc-fr.html">Documentation</a>)</li>
-</ul>
-</section>
-</div></div>
-</section>
+
 <div class="row pagedetails">
 <div class="col-sm-6 col-lg-4 mrgn-tp-sm">
 <a href="https://www.canada.ca/en/report-problem.html" class="btn btn-default btn-block">Report a problem or mistake on this page</a>
@@ -231,37 +192,12 @@
 <div class="datemod col-xs-12 mrgn-tp-lg">
 <dl id="wb-dtmd">
 <dt>Date modified:&#32;</dt>
-<dd><time property="dateModified">2017-05-04</time></dd>
+<dd><time property="dateModified">2017-06-01</time></dd>
 </dl>
 </div>
 </div>
 </main>
-<aside class="gc-nttvs container">
-<h2>Government of Canada activities and initiatives</h2>
-<div id="gcwb_prts" class="wb-eqht row">
-<section class="col-lg-4 col-md-6 mrgn-bttm-md">
-<a rel="external" href="#">
-<h3 class="h5">[Activities and initiatives hyperlink text]</h3>
-<img class="img-responsive thumbnail mrgn-bttm-sm" src="./img/features/355x113.png" alt="">
-</a>
-<p>Brief description of the initiative, task or information being promoted.</p>
-</section>
-<section class="col-lg-4 col-md-6 mrgn-bttm-md">
-<a rel="external" href="#">
-<h3 class="h5">[Activities and initiatives hyperlink text]</h3>
-<img class="img-responsive thumbnail mrgn-bttm-sm" src="./img/features/355x113.png" alt="">
-</a>
-<p>Brief description of the initiative, task or information being promoted.</p>
-</section>
-<section class="col-lg-4 col-md-6 mrgn-bttm-md">
-<a rel="external" href="#">
-<h3 class="h5">[Activities and initiatives hyperlink text]</h3>
-<img class="img-responsive thumbnail mrgn-bttm-sm" src="./img/features/355x113.png" alt="">
-</a>
-<p>Brief description of the initiative, task or information being promoted.</p>
-</section>
-</div>
-</aside>
+
 <footer role="contentinfo" id="wb-info">
 <nav role="navigation" class="container wb-navcurr">
 <h2 class="wb-inv">About government</h2>
