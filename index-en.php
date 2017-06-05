@@ -125,12 +125,12 @@ li{
 </nav>
 </header>
 <main role="main" property="mainContentOfPage" class="container">
-<h1 property="name" id="wb-cont">Canada.ca theme-test2</h1>
+<h1 property="name" id="wb-cont">Reference Listing of Accepted Construction Materials, Packaging Materials and Non-Food Chemical Products Database</h1>
 
 <section>
 
 <div class="row"><div class="col-md-8">
-
+<p><strong>Note:</strong> The office is closed. The CFIA no longer pre-approves construction materials, packaging materials, non-food chemicals and working apparel. The reference listing continues to be available on the CFIA website as a reference only. As the list is no longer maintained, it is up to users to verify the accuracy of the information with manufacturers. </p>
 <p>&nbsp;</p>
 <!-- beginning of Dropdown list scripts -->
 
