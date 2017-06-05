@@ -125,7 +125,7 @@ li{
 </nav>
 </header>
 <main role="main" property="mainContentOfPage" class="container">
-<h1 property="name" id="wb-cont">Canada.ca theme-test</h1>
+<h1 property="name" id="wb-cont">Canada.ca theme-test2</h1>
 
 <section>
 
