@@ -1868,7 +1868,7 @@ function paging($subID, $total, $pageid, $TotalCount)
   <br />
 </div>
 <?php
-    echo "<br /><br /><br />";
+    echo "<br />";
     if ($pageid > 1) {
         $id = $pageid - 1;
         echo "<div class='divClass'><a href='#' onclick='pages($subID, $id)'>Previous</a></div>";
