@@ -5,10 +5,23 @@
 <meta charset="utf-8">
 <!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
 		wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
-<title>Thème Canada.ca - Canada.ca</title>
+<title>Agence canadienne d'inspection des aliments - Recherche de la liste de référence pour les matériaux de construction, les matériaux d'emballage, et les produits chimiques non alimentaires acceptés</title>
 <meta content="width=device-width,initial-scale=1" name="viewport">
 <!-- Meta data -->
 <meta name="description" content="La Boîte à outils de l’expérience Web (BOEW) rassemble différents composants réutilisables et prêts-à-utiliser pour la conception et la mise à jour de sites Web innovateurs qui sont à la fois accessibles, conviviaux et interopérables. Tous ces composants réutilisables sont des logiciels libres mis à la disposition des ministères et des collectivités Web externes.">
+
+<!-- added for accepted dropdown list start -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="./acceptedlist_fr.js"></script>
+<style type="text/css">
+li{
+	list-style: none;
+	display:inline-block;
+	padding:6px;
+}
+</style>
+<!-- added for accepted dropdown list end-->
+
 <!-- Meta data-->
 <!--[if gte IE 9 | !IE ]><!-->
 <link href="./GCWeb/assets/favicon.ico" rel="icon" type="image/x-icon">
@@ -112,114 +125,69 @@
 </nav>
 </header>
 <main role="main" property="mainContentOfPage" class="container">
-<h1 property="name" id="wb-cont">Thème Canada.ca</h1>
-<ul class="list-inline">
-<li><a class="btn btn-primary" href="docs/ref/GCWeb/GCWeb-fr.html">Documentation</a></li>
-<li><a class="btn btn-primary" href="https://github.com/wet-boew/GCWeb/issues/new?title=Th%C3%A8me%20Canada.ca:%20">Questions ou commentaires?</a></li>
-</ul>
+<h1 property="name" id="wb-cont">Base de données de la liste de référence pour les matériaux de construction, les matériaux d'emballage, et les produits chimiques non alimentaires acceptés</h1>
+
+
+
+
 <section>
-<h2>Anglais</h2>
+
 <div class="row"><div class="col-md-8">
-<ul>
-<li><a href="home-en.html">Page d’accueil</a></li>
-<li><a href="theme-en.html">Page d’atterrissage du thème</a></li>
-<li><a href="topic-en.html">Page d’atterrissage du sujet</a></li>
-<li><a href="institution-en.html">Profil institutionnel pour les grandes organisations</a></li>
-<li><a href="institution-en.html">Profil institutionnel pour les organisations sans lien de dépendance</a></li>
-<li><a href="institution-small-en.html">Profil institutionnel pour les petites organisations</a></li>
-<li><a href="content-en.html">Page de contenu</a></li>
-<li><a href="content-signedoff-en.html">Page de contenu - Session Fermée</a></li>
-<li><a href="content-signedon-en.html">Page de contenu - Session Ouverte</a></li>
-<li><a href="components-en.html">Page de composants</a></li>
-<li><a href="video-en.html">Page de contenu vidéo</a></li>
-<li><a href="feedback-en.html">Formulaire de rétroaction</a></li>
-<li><a href="widgets-en.html">Page de gadgets</a></li>
-<li><a href="localnav/task1/index-en.html">Exemples avec un menu de la section</a></li>
-<li><a href="splashpage.html">Page d’entrée</a></li>
-<li><a href="servermessage-en.html">Page de message du serveur</a></li>
-<li><a href="servermessage-en-fr.html">Page de message du serveur (anglais/français)</a></li>
-<li><a href="campaign-en.html">Campagne</a></li>
-<li><a href="event-en.html">Événement</a></li>
-<li><a href="service-en.html">Page d’accueil d’initiation de service simple</a></li>
-<li><a href="advancedservice/index-en.html">Page d’accueil d’initiation de service avancé</a></li>
-<li><a href="dept-en.html">Ministères et organismes</a></li>
-<li><a href="ministerial-en.html">Profil ministérielle</a></li>
-<li><a href="act-en.html">Lois</a></li>
-<li><a href="regulations-en.html">Règlements</a></li>
-<li><a href="topic-lowest-en.html">Page de sujet au plus bas niveau</a></li>
-<li><a href="organizational-en.html">Page profil de l’organisme</a></li>
-<li><a href="organizational-carousel-en.html">Page profil de l’organisme avec carousel</a></li>
-<li><a href="archived-en.html">Page archivée</a></li>
-<li><a href="404-en.html">Page d'erreur 404</a></li>
-<li><a href="404-en-fr.html">Page d'erreur 404 (anglais/français)</a></li>
-</ul>
+
+<p><strong>Remarque :</strong> Le bureau est fermé. L'ACIA n'approuve plus au préalable les matériaux de construction, les matériaux d'emballage, les produits chimiques non alimentaires et les vêtements de travail. La Liste de référence demeure disponible sur le site Web de l'ACIA à titre de référence seulement. Comme la liste nest plus maintenue, il incombe aux utilisateurs de vérifier lexactitude des renseignements auprès des fabricants. </p>
+
+<p>&nbsp;</p>
+<!-- beginning of Dropdown list scripts -->
+
+
+<?php
+//Include database configuration file
+include('config.php');
+$db = new mysqli($host, $username, $password, $databasename);
+$db->set_charset("utf8");
+
+//Get all country data
+$query = $db->query("SELECT * FROM Categories ORDER BY REPLACE(HeaderF,'\'','') ASC");
+
+
+//Count total number of rows
+$rowCount = $query->num_rows;
+?>
+<select name="category" id="category">
+    <option value="">Choisir une catégorie</option>
+    <option value="SelectAll">Sélectionner tout</option>
+    
+    <?php
+    if($rowCount > 0){
+        while($row = $query->fetch_assoc()){ 
+            echo '<option value="'.$row['CategoryID'].'">'.$row['HeaderF'].'</option>';
+        }
+    }else{
+        echo '<option value="">empty!</option>';
+    }
+    ?>
+</select>
+</p>
+<p>
+
+<select name="subcategory" id="subcategory">
+    <option value="">Sélectionner une catégorie en premier</option>
+</select>
+
+</p>
+
+<span id="displayy" name="displayy"></span>
+
+<span id="displayresults" name="displayresults"></span>
+
+
 </div><div class="col-md-4">
-<section>
-<h3>Plugiciel du thème</h3>
-<ul>
-<li><a href="demos/data-json/data-json-en.html" hreflang="en">Data JSON</a> (<a hreflang="en" href="demos/data-json/data-json-doc-en.html">Documentation</a>)</li>
-<li><a href="demos/data-json/template-en.html" hreflang="en">Gabarit HTML5</a> (<a hreflang="en" href="demos/data-json/data-json-doc-en.html">Documentation</a>)</li>
-<li><a href="demos/jsonmanager/jsonmanager-en.html" hreflang="en">Gestionnaire JSON</a> (<a hreflang="en" href="demos/jsonmanager/jsonmanager-doc-en.html">Documentation</a>)</li>
-<li><a href="demos/urlmapping/tblfilter-en.html" hreflang="en">Correspondance d'URL - Filtrage de tableau</a> (<a hreflang="en" href="demos/urlmapping/urlmapping-doc-en.html">Documentation</a>)</li>
-<li><a href="demos/urlmapping/ajax-en.html" hreflang="en">Correspondance d'URL - Ajax</a> (<a hreflang="en" href="demos/urlmapping/urlmapping-doc-en.html">Documentation</a>)</li>
-<li><a href="demos/urlmapping/patches-en.html" hreflang="en">Correspondance d'URL - Appliquer des correctifs JSON</a> (<a hreflang="en" href="demos/urlmapping/urlmapping-doc-en.html">Documentation</a>)</li>
-<li><a href="demos/fieldflow/fieldflow-en.html" hreflang="en">Déroulement de champs</a> (<a hreflang="en" href="demos/fieldflow/fieldflow-doc-en.html">Documentation</a>)</li>
-<li><a href="demos/fieldflow/basic-en.html" hreflang="en">Déroulement de champs avec des configurations de base</a> (<a hreflang="en" href="demos/fieldflow/fieldflow-doc-en.html">Documentation</a>)</li>
-<li><a href="demos/fieldflow/advanced-en.html" hreflang="en">Déroulement de champs avancé</a> (<a hreflang="en" href="demos/fieldflow/fieldflow-doc-en.html">Documentation</a>)</li>
-</ul>
-</section>
+
 </div></div>
 </section>
 <section>
-<h2>Français</h2>
-<div class="row"><div class="col-md-8">
-<ul>
-<li><a href="home-fr.html">Page d’accueil</a></li>
-<li><a href="theme-fr.html">Page d’atterrissage du thème</a></li>
-<li><a href="topic-fr.html">Page d’atterrissage du sujet</a></li>
-<li><a href="institution-fr.html">Profil institutionnel pour les grandes organisations</a></li>
-<li><a href="institution-arms-fr.html">Profil institutionnel pour les organisations sans lien de dépendance</a></li>
-<li><a href="institution-small-fr.html">Profil institutionnel pour les petites organisations</a></li>
-<li><a href="content-fr.html">Page de contenu</a></li>
-<li><a href="components-fr.html">Page de composants</a></li>
-<li><a href="video-fr.html">Page de contenu vidéo</a></li>
-<li><a href="feedback-fr.html">Formulaire de rétroaction</a></li>
-<li><a href="widgets-fr.html">Page de gadgets</a></li>
-<li><a href="localnav/task1/index-fr.html">Exemples avec un menu de la section</a></li>
-<li><a href="splashpage.html">Page d’entrée</a></li>
-<li><a href="servermessage-fr.html">Page de message du serveur</a></li>
-<li><a href="servermessage-fr-en.html">Page de message du serveur (français/anglais)</a></li>
-<li><a href="campaign-fr.html">Campagne</a></li>
-<li><a href="event-fr.html">Événement</a></li>
-<li><a href="service-fr.html">Page d’accueil d’initiation de service simple</a></li>
-<li><a href="advancedservice/index-fr.html">Page d’accueil d’initiation de service avancé</a></li>
-<li><a href="dept-fr.html">Ministères et organismes</a></li>
-<li><a href="ministerial-fr.html">Profil ministérielle</a></li>
-<li><a href="act-fr.html">Lois</a></li>
-<li><a href="regulations-fr.html">Règlements</a></li>
-<li><a href="topic-lowest-fr.html">Page de sujet au plus bas niveau</a></li>
-<li><a href="organizational-fr.html">Page profil de l’organisme</a></li>
-<li><a href="organizational-carousel-fr.html">Page profil de l’organisme avec carousel</a></li>
-<li><a href="archived-fr.html">Page archivée</a></li>
-<li><a href="404-fr.html">Page d'erreur 404</a></li>
-<li><a href="404-fr-en.html">Page d'erreur 404 (français/anglais)</a></li>
-</ul>
-</div><div class="col-md-4">
-<section>
-<h3>Plugiciel du thème</h3>
-<ul>
-<li><a href="demos/data-json/data-json-fr.html">Data JSON</a> (<a href="demos/data-json/data-json-doc-fr.html">Documentation</a>)</li>
-<li><a href="demos/data-json/template-fr.html">Gabarit HTML5</a> (<a href="demos/data-json/data-json-doc-fr.html">Documentation</a>)</li>
-<li><a href="demos/jsonmanager/jsonmanager-fr.html">Gestionnaire JSON</a> (<a href="demos/jsonmanager/jsonmanager-doc-fr.html">Documentation</a>)</li>
-<li><a href="demos/urlmapping/tblfilter-fr.html">Correspondance d'URL - Filtrage de tableau</a> (<a href="demos/urlmapping/urlmapping-doc-fr.html">Documentation</a>)</li>
-<li><a href="demos/urlmapping/ajax-fr.html">Correspondance d'URL - Ajax</a> (<a href="demos/urlmapping/urlmapping-doc-fr.html">Documentation</a>)</li>
-<li><a href="demos/urlmapping/patches-fr.html">Correspondance d'URL - Appliquer des correctifs JSON</a> (<a href="demos/urlmapping/urlmapping-doc-fr.html">Documentation</a>)</li>
-<li><a href="demos/fieldflow/fieldflow-fr.html">Déroulement de champs</a> (<a href="demos/fieldflow/fieldflow-doc-fr.html">Documentation</a>)</li>
-<li><a href="demos/fieldflow/basic-fr.html">Déroulement de champs avec des configurations de base</a> (<a href="demos/fieldflow/fieldflow-doc-fr.html">Documentation</a>)</li>
-<li><a href="demos/fieldflow/advanced-fr.html">Déroulement de champs avancé</a> (<a href="demos/fieldflow/fieldflow-doc-fr.html">Documentation</a>)</li>
-</ul>
-</section>
-</div></div>
+
+
 </section>
 <div class="row pagedetails">
 <div class="col-sm-6 col-lg-4 mrgn-tp-sm">
@@ -231,7 +199,7 @@
 <div class="datemod col-xs-12 mrgn-tp-lg">
 <dl id="wb-dtmd">
 <dt>Date de modification&#160;:&#32;</dt>
-<dd><time property="dateModified">2017-05-04</time></dd>
+<dd><time property="dateModified">2017-07-08</time></dd>
 </dl>
 </div>
 </div>
