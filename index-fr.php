@@ -62,7 +62,7 @@ li{
 <div class="row">
 <div class="col-md-12">
 <ul class="list-inline margin-bottom-none">
-<li><a lang="en" href="index-en.html">English</a></li>
+<li><a lang="en" href="index-en.php">English</a></li>
 </ul>
 </div>
 </div>
