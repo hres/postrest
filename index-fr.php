@@ -142,9 +142,16 @@ li{
 
 <?php
 //Include database configuration file
-include('config.php');
-$db = new mysqli($host, $username, $password, $databasename);
+$config = parse_ini_file('./db.ini');
+	
+	
+$db = new mysqli($config['hostname'], $config['username'], $config['password'],$config['dbname']);
 $db->set_charset("utf8");
+	if ($db->connect_errno) {
+    printf("Connect failed: %s\n", $mysqli->connect_error);
+    exit();
+}
+	
 
 //Get all country data
 $query = $db->query("SELECT * FROM Categories ORDER BY REPLACE(HeaderF,'\'','') ASC");
