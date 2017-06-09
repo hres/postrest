@@ -1896,7 +1896,7 @@ function paging($subID, $total, $pageid, $TotalCount)
         
         else {
             if ($total != 1) {
-                echo "<li><a href='#' onclick='pages($subID, " . $i . ")'>" . $i . "</a></li>";
+                echo "<li style=\"list-style:none; display:inline-block; padding:6px;\"><a href='#' onclick='pages($subID, " . $i . ")'>" . $i . "</a></li>";
             }
         }
     }
