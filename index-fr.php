@@ -13,13 +13,7 @@
 <!-- added for accepted dropdown list start -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="./acceptedlist_fr.js"></script>
-<style type="text/css">
-li{
-	list-style: none;
-	display:inline-block;
-	padding:6px;
-}
-</style>
+
 <!-- added for accepted dropdown list end-->
 
 <!-- Meta data-->
@@ -151,7 +145,6 @@ $db->set_charset("utf8");
     printf("Connect failed: %s\n", $mysqli->connect_error);
     exit();
 }
-	
 
 //Get all country data
 $query = $db->query("SELECT * FROM Categories ORDER BY REPLACE(HeaderF,'\'','') ASC");
@@ -190,7 +183,35 @@ $rowCount = $query->num_rows;
 
 </div><div class="col-md-4">
 
-</div></div>
+</div>
+
+<div class="pull-right col-md-4">
+			
+
+
+    
+
+    <section class="lnkbx well">
+        <h2 class="mrgn-tp-0">Collaborateurs</h2>
+
+        <ul>
+            
+                <li>
+                    <a href="/fr/agence-inspection-aliments.html" title="Agence canadienne d’inspection des aliments">Agence canadienne d’inspection des aliments</a>
+                </li>
+            
+              
+        </ul>
+
+        
+    </section>
+
+
+			
+		</div>
+
+
+</div>
 </section>
 <section>
 
@@ -211,77 +232,219 @@ $rowCount = $query->num_rows;
 </div>
 </div>
 </main>
+
+
+
+        
+        
+        <div class="iparys_inherited">
+
+    
+    
+    
+    
+        
+        
+        
+        
+
+
+
+
 <aside class="gc-nttvs container">
-<h2>Activités et initiatives du gouvernement du Canada</h2>
-<div id="gcwb_prts" class="wb-eqht row">
-<section class="col-lg-4 col-md-6 mrgn-bttm-md">
-<a rel="external" href="#">
-<h3 class="h5">[Texte de l’hyperlien d’activités et initiatives]</h3>
-<img class="img-responsive thumbnail mrgn-bttm-sm" src="./img/features/355x113.png" alt="">
-</a>
-<p>Brève description de l’initiative, la tâche ou des renseignements en promotion.</p>
-</section>
-<section class="col-lg-4 col-md-6 mrgn-bttm-md">
-<a rel="external" href="#">
-<h3 class="h5">[Texte de l’hyperlien d’activités et initiatives]</h3>
-<img class="img-responsive thumbnail mrgn-bttm-sm" src="./img/features/355x113.png" alt="">
-</a>
-<p>Brève description de l’initiative, la tâche ou des renseignements en promotion.</p>
-</section>
-<section class="col-lg-4 col-md-6 mrgn-bttm-md">
-<a rel="external" href="#">
-<h3 class="h5">[Texte de l’hyperlien d’activités et initiatives]</h3>
-<img class="img-responsive thumbnail mrgn-bttm-sm" src="./img/features/355x113.png" alt="">
-</a>
-<p>Brève description de l’initiative, la tâche ou des renseignements en promotion.</p>
-</section>
-</div>
+    <h2>Activités et initiatives du gouvernement du Canada</h2>
+   <div id="gcwb_prts" class="wb-eqht row">
+       
+           
+           <section class="col-lg-4 col-md-6 mrgn-bttm-md">
+             <a href="https://www.canada.ca/fr/innovation-sciences-developpement-economique/programmes/croissance-financement-petites-entreprises/supergrappes-innovation.html" rel="external" data-ga="&amp;promo1cr=Featured%20Items&amp;promo1nm=L%27Initiative%20des%20supergrappes%20d%27innovation&amp;promo1ps=1&amp;el=L%27Initiative%20des%20supergrappes%20d%27innovation">
+               <h3 class="h5">L'Initiative des supergrappes d'innovation</h3>
+               <img src="https://www.canada.ca/content/dam/canada/activities/pi-2017-06-05-1.jpg" alt="" class="img-responsive thumbnail mrgn-bttm-sm">
+             </a>
+             <p>L'Initiative des supergrappes d'innovation – Bâtir un meilleur Canada.</p>
+           </section>
+           
+   
+       
+           
+           <section class="col-lg-4 col-md-6 mrgn-bttm-md">
+             <a href="https://www.aadnc-aandc.gc.ca/fra/1466616436543/1466616481533" rel="external" data-ga="&amp;promo2cr=Featured%20Items&amp;promo2nm=Juin%20est%20le%20Mois%20national%20de%20l%E2%80%99histoire%20autochtone.&amp;promo2ps=2&amp;el=Juin%20est%20le%20Mois%20national%20de%20l%E2%80%99histoire%20autochtone.">
+               <h3 class="h5">Juin est le Mois national de l’histoire autochtone.</h3>
+               <img src="https://www.canada.ca/content/dam/canada/activities/pi-2017-06-01-2.jpg" alt="" class="img-responsive thumbnail mrgn-bttm-sm">
+             </a>
+             <p>Juin est le Mois national de l’histoire autochtone. Obtenez des renseignements sur les contributions des peuples autochtones au Canada.</p>
+           </section>
+           
+   
+       
+           
+           <section class="col-lg-4 col-md-6 mrgn-bttm-md">
+             <a href="http://www.Canada.ca/politique-defense" rel="external" data-ga="&amp;promo3cr=Featured%20Items&amp;promo3nm=Politique%20de%20d%C3%A9fense%20du%20Canada&amp;promo3ps=3&amp;el=Politique%20de%20d%C3%A9fense%20du%20Canada">
+               <h3 class="h5">Politique de défense du Canada</h3>
+               <img src="https://www.canada.ca/content/dam/canada/activities/pi-2017-06-07-3.jpg" alt="" class="img-responsive thumbnail mrgn-bttm-sm">
+             </a>
+             <p>Découvrez comment la nouvelle politique de défense du Canada façonnera le rôle du Canada dans le monde.</p>
+           </section>
+           
+   
+       
+    </div>
 </aside>
-<footer role="contentinfo" id="wb-info">
-<nav role="navigation" class="container wb-navcurr">
-<h2 class="wb-inv">Au sujet du gouvernement</h2>
-<ul class="list-unstyled colcount-sm-2 colcount-md-3">
-<li><a href="https://www.canada.ca/fr/contact.html">Contactez-nous</a></li>
-<li><a href="https://www.canada.ca/fr/gouvernement/min.html">Ministères et organismes</a></li>
-<li><a href="https://www.canada.ca/fr/gouvernement/fonctionpublique.html">Fonction publique et force militaire</a></li>
-<li><a href="https://www.canada.ca/fr/nouvelles.html">Nouvelles</a></li>
-<li><a href="https://www.canada.ca/fr/gouvernement/systeme/lois.html">Traités, lois et règlements</a></li>
-<li><a href="https://www.canada.ca/fr/transparence/rapports.html">Rapports à l'échelle du gouvernement</a></li>
-<li><a href="http://pm.gc.ca/fra">Premier ministre</a></li>
-<li><a href="https://www.canada.ca/fr/gouvernement/systeme.html">Comment le gouvernement fonctionne</a></li>
-<li><a href="http://ouvert.canada.ca/">Gouvernement ouvert</a></li>
-</ul> </nav>
-<div class="brand">
-<div class="container">
-<div class="row">
-<nav class="col-md-10 ftr-urlt-lnk">
-<h2 class="wb-inv">À propos du site</h2>
-<ul>
-<li><a href="https://www.canada.ca/fr/sociaux.html">Médias sociaux</a></li>
-<li><a href="https://www.canada.ca/fr/mobile.html">Applications mobiles</a></li>
-<li><a href="https://www1.canada.ca/fr/nouveausite.html">À propos de Canada.ca</a></li>
-<li><a href="https://www.canada.ca/fr/transparence/avis.html">Avis</a></li>
-<li><a href="https://www.canada.ca/fr/transparence/confidentialite.html">Confidentialité</a></li>
-</ul>
-</nav>
-<div class="col-xs-6 visible-sm visible-xs tofpg">
-<a href="#wb-cont">Haut de la page <span class="glyphicon glyphicon-chevron-up"></span></a>
+
+
+
+
+    
 </div>
-<div class="col-xs-6 col-md-2 text-right">
-<object type="image/svg+xml" tabindex="-1" role="img" data="./GCWeb/assets/wmms-blk.svg" aria-label="Symbole du gouvernement du Canada"></object>
+        
+    
+
+	
+
+    
+        
+        
+        <div class="iparys_inherited">
+
+    
+    
+    
+    
+        
+        
+        
+        
+    <footer role="contentinfo" id="wb-info">
+        <nav role="navigation" class="container wb-navcurr">
+            <h2 class="wb-inv">About government</h2>
+            <ul class="list-unstyled colcount-sm-2 colcount-md-3">
+                
+                     
+                         <li><a href="https://www.canada.ca/fr/contact.html">Contactez-nous</a></li>
+                     
+                
+                
+                    
+                        <li><a href="https://www.canada.ca/fr/gouvernement/min.html">Ministères et organismes</a></li>
+                    
+                
+                
+                    
+                        <li><a href="https://www.canada.ca/fr/gouvernement/fonctionpublique.html">Fonction publique et force militaire</a></li>
+                    
+                
+                
+                    
+                        <li><a href="https://www.canada.ca/fr/nouvelles.html">Nouvelles</a></li>
+                    
+                
+                
+                    
+                        <li><a href="https://www.canada.ca/fr/gouvernement/systeme/lois.html">Traités, lois et règlements</a></li>
+                    
+                
+                
+                    
+                        <li><a href="https://www.canada.ca/fr/transparence/rapports.html">Rapports à l&#39;échelle du gouvernement</a></li>
+                    
+                
+                
+                    
+                        <li><a href="http://pm.gc.ca/fra">Premier ministre</a></li>
+                    
+                
+                
+                    
+                        <li><a href="https://www.canada.ca/fr/gouvernement/systeme.html">Comment le gouvernement fonctionne</a></li>
+                    
+                
+                
+                    
+                        <li><a href="http://ouvert.canada.ca/">Gouvernement ouvert</a></li>
+                    
+                
+            </ul>
+        </nav>
+        <div class="brand">
+            <div class="container">
+                <div class="row">
+                    <nav class="col-md-10 ftr-urlt-lnk">
+                        <h2 class="wb-inv">À propos de ce site</h2>
+                        <ul>
+                            
+                                
+                                    <li><a href="https://www.canada.ca/fr/sociaux.html">Médias sociaux</a></li>
+                                
+                            
+                            
+                                
+                                    <li><a href="https://www.canada.ca/fr/mobile.html">Applications mobiles</a></li>
+                                
+                            
+                            
+                                
+                                    <li><a href="http://www1.canada.ca/fr/nouveausite.html">À propos de Canada.ca</a></li>
+                                
+                            
+                            
+                                
+                                    <li><a href="https://www.canada.ca/fr/transparence/avis.html">Avis</a></li>
+                                
+                            
+                            
+                                
+                                    <li><a href="https://www.canada.ca/fr/transparence/confidentialite.html">Confidentialité</a></li>
+                                
+                            
+                            
+                                
+                            
+                        </ul>
+                    </nav>
+                    <div class="col-xs-6 visible-sm visible-xs tofpg">
+                        <a href="#wb-cont">Haut de la page <span class="glyphicon glyphicon-chevron-up"></span></a>
+                    </div>
+                    <div class="col-xs-6 col-md-2 text-right">
+                        <object type="image/svg+xml" tabindex="-1" role="img" data="/etc/designs/canada/wet-boew/assets/wmms-blk.svg" aria-label="Symbole du gouvernement du Canada"></object>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    
 </div>
-</div>
-</div>
-</div>
-</footer>
+        
+    
+
+	
+
+
+
+<script type="text/javascript">_satellite.pageBottom();</script>
+
+
+
+
+
+
+    
+<script type="text/javascript" src="/etc/clientlibs/granite/jquery.js"></script>
+<script type="text/javascript" src="/etc/clientlibs/granite/utils.js"></script>
+<script type="text/javascript" src="/etc/designs/canada/clientlib-publish.js"></script>
+
+
+
+
 <!--[if gte IE 9 | !IE ]><!-->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
-<script src="./wet-boew/js/wet-boew.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="/etc/designs/canada/wet-boew/js/wet-boew.min.js"></script>
 <!--<![endif]-->
+
 <!--[if lt IE 9]>
-		<script src="./wet-boew/js/ie8-wet-boew2.min.js"></script>
-		
-		<![endif]-->
-<script src="./GCWeb/js/theme.min.js"></script>
+<script src="/etc/designs/canada/wet-boew/js/ie8-wet-boew2.min.js"></script>
+<![endif]-->
+
+<script src="/etc/designs/canada/wet-boew/js/theme.min.js"></script>
 </body>
 </html>
