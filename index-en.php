@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
 		wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
-<title>Canadian Food Inspection Agency - Search the Reference Listing of Accepted Construction Materials, Packaging Materials and Non-Food Chemical Products</title>
+<title>Canada.ca theme - Canada.ca</title>
 <meta content="width=device-width,initial-scale=1" name="viewport">
 <!-- Meta data -->
 <meta name="description" content="Web Experience Toolkit (WET) includes reusable components for building and maintaining innovative Web sites that are accessible, usable, and interoperable. These reusable components are open source software and free for use by departments and external Web communities">
@@ -12,13 +12,7 @@
 <!-- added for accepted dropdown list start -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="./acceptedlist.js"></script>
-<style type="text/css">
-li{
-	list-style: none;
-	display:inline-block;
-	padding:6px;
-}
-</style>
+
 <!-- added for accepted dropdown list end-->
 
 <!-- Meta data-->
@@ -127,10 +121,13 @@ li{
 <main role="main" property="mainContentOfPage" class="container">
 <h1 property="name" id="wb-cont">Reference Listing of Accepted Construction Materials, Packaging Materials and Non-Food Chemical Products Database</h1>
 
+
 <section>
 
-<div class="row"><div class="col-md-8">
+<div class="row"><div class="col-md-8 pull-left mrgn-bttm-lg">
+
 <p><strong>Note:</strong> The office is closed. The CFIA no longer pre-approves construction materials, packaging materials, non-food chemicals and working apparel. The reference listing continues to be available on the CFIA website as a reference only. As the list is no longer maintained, it is up to users to verify the accuracy of the information with manufacturers. </p>
+
 <p>&nbsp;</p>
 <!-- beginning of Dropdown list scripts -->
 
@@ -184,70 +181,273 @@ $rowCount = $query->num_rows;
 
 </div><div class="col-md-4">
 
-</div></div>
+</div>
+
+
+<div class="pull-right col-md-4">
+			
+
+
+    
+
+    <section class="lnkbx well">
+        <h2 class="mrgn-tp-0">Contributors</h2>
+
+        <ul>
+            
+                <li>
+                    <a href="/en/food-inspection-agency.html" title="Canadian Food Inspection Agency">Canadian Food Inspection Agency</a>
+                </li>
+            
+               
+            
+        </ul>
+
+        
+    </section>
+
+
+			
+		</div>
+
+
+</div>
 </section>
+
+
+
+
+		
+
+
+
 
 <div class="row pagedetails">
 <div class="col-sm-6 col-lg-4 mrgn-tp-sm">
 <a href="https://www.canada.ca/en/report-problem.html" class="btn btn-default btn-block">Report a problem or mistake on this page</a>
 </div>
-<div class="col-sm-3 mrgn-tp-sm pull-right">
-<div class="wb-share" data-wb-share='{"lnkClass": "btn btn-default btn-block"}'></div>
-</div>
+   <div class="col-sm-3 mrgn-tp-sm pull-right">
+        <div class="wb-share" data-wb-share="{&#34;lnkClass&#34;: &#34;btn btn-default btn-block&#34;}"></div>
+    </div>
 <div class="datemod col-xs-12 mrgn-tp-lg">
 <dl id="wb-dtmd">
 <dt>Date modified:&#32;</dt>
-<dd><time property="dateModified">2017-06-01</time></dd>
+<dd><time property="dateModified">2017-06-09</time></dd>
 </dl>
 </div>
 </div>
 </main>
 
-<footer role="contentinfo" id="wb-info">
-<nav role="navigation" class="container wb-navcurr">
-<h2 class="wb-inv">About government</h2>
-<ul class="list-unstyled colcount-sm-2 colcount-md-3">
-<li><a href="https://www.canada.ca/en/contact.html">Contact us</a></li>
-<li><a href="https://www.canada.ca/en/government/dept.html">Departments and agencies</a></li>
-<li><a href="https://www.canada.ca/en/government/publicservice.html">Public service and military</a></li>
-<li><a href="https://www.canada.ca/en/news.html">News</a></li>
-<li><a href="https://www.canada.ca/en/government/system/laws.html">Treaties, laws and regulations</a></li>
-<li><a href="https://www.canada.ca/en/transparency/reporting.html">Government-wide reporting</a></li>
-<li><a href="http://pm.gc.ca/eng">Prime Minister</a></li>
-<li><a href="https://www.canada.ca/en/government/system.html">How government works</a></li>
-<li><a href="http://open.canada.ca/en/">Open government</a></li>
-</ul> </nav>
-<div class="brand">
-<div class="container">
-<div class="row">
-<nav class="col-md-10 ftr-urlt-lnk">
-<h2 class="wb-inv">About this site</h2>
-<ul>
-<li><a href="https://www.canada.ca/en/social.html">Social media</a></li>
-<li><a href="https://www.canada.ca/en/mobile.html">Mobile applications</a></li>
-<li><a href="https://www1.canada.ca/en/newsite.html">About Canada.ca</a></li>
-<li><a href="https://www.canada.ca/en/transparency/terms.html">Terms and conditions</a></li>
-<li><a href="https://www.canada.ca/en/transparency/privacy.html">Privacy</a></li>
-</ul>
-</nav>
-<div class="col-xs-6 visible-sm visible-xs tofpg">
-<a href="#wb-cont">Top of Page <span class="glyphicon glyphicon-chevron-up"></span></a>
+        
+        
+        <div class="iparys_inherited">
+
+    
+    
+    
+    
+        
+        
+        
+        
+
+
+
+
+<aside class="gc-nttvs container">
+    <h2>Government of Canada activities and initiatives </h2>
+   <div id="gcwb_prts" class="wb-eqht row">
+       
+           
+           <section class="col-lg-4 col-md-6 mrgn-bttm-md">
+             <a href="https://www.canada.ca/en/innovation-science-economic-development/programs/small-business-financing-growth/innovation-superclusters.html" rel="external" data-ga="&amp;promo1cr=Featured%20Items&amp;promo1nm=Innovation%20Superclusters%20Initiative&amp;promo1ps=1&amp;el=Innovation%20Superclusters%20Initiative">
+               <h3 class="h5">Innovation Superclusters Initiative</h3>
+               <img src="https://www.canada.ca/content/dam/canada/activities/pi-2017-06-05-1.jpg" alt="" class="img-responsive thumbnail mrgn-bttm-sm">
+             </a>
+             <p>Innovation Superclusters Initiative – Building a Better Canada.</p>
+           </section>
+           
+   
+       
+           
+           <section class="col-lg-4 col-md-6 mrgn-bttm-md">
+             <a href="https://www.aadnc-aandc.gc.ca/eng/1466616436543/1466616481533" rel="external" data-ga="&amp;promo2cr=Featured%20Items&amp;promo2nm=June%20is%20National%20Aboriginal%20History%20Month%21&amp;promo2ps=2&amp;el=June%20is%20National%20Aboriginal%20History%20Month%21">
+               <h3 class="h5">June is National Aboriginal History Month!</h3>
+               <img src="https://www.canada.ca/content/dam/canada/activities/pi-2017-06-01-2.jpg" alt="" class="img-responsive thumbnail mrgn-bttm-sm">
+             </a>
+             <p>June is National Aboriginal History Month. Learn more about the contributions of Indigenous peoples to Canada.</p>
+           </section>
+           
+   
+       
+           
+           <section class="col-lg-4 col-md-6 mrgn-bttm-md">
+             <a href="http://www.Canada.ca/defence-policy" rel="external" data-ga="&amp;promo3cr=Featured%20Items&amp;promo3nm=Canada%E2%80%99s%20Defence%20Policy&amp;promo3ps=3&amp;el=Canada%E2%80%99s%20Defence%20Policy">
+               <h3 class="h5">Canada’s Defence Policy</h3>
+               <img src="https://www.canada.ca/content/dam/canada/activities/pi-2017-06-07-3.jpg" alt="" class="img-responsive thumbnail mrgn-bttm-sm">
+             </a>
+             <p>Discover how the new Defence Policy will shape Canada’s role in the world.</p>
+           </section>
+           
+   
+       
+    </div>
+</aside>
+
+
+
+
+    
 </div>
-<div class="col-xs-6 col-md-2 text-right">
-<object type="image/svg+xml" tabindex="-1" role="img" data="./GCWeb/assets/wmms-blk.svg" aria-label="Symbol of the Government of Canada"></object>
+        
+    
+
+	
+
+    
+        
+        
+        <div class="iparys_inherited">
+
+    
+    
+    
+    
+        
+        
+        
+        
+    <footer role="contentinfo" id="wb-info">
+        <nav role="navigation" class="container wb-navcurr">
+            <h2 class="wb-inv">About government</h2>
+            <ul class="list-unstyled colcount-sm-2 colcount-md-3">
+                
+                     
+                         <li><a href="https://www.canada.ca/en/contact.html">Contact us</a></li>
+                     
+                
+                
+                    
+                        <li><a href="https://www.canada.ca/en/government/dept.html">Departments and agencies</a></li>
+                    
+                
+                
+                    
+                        <li><a href="https://www.canada.ca/en/government/publicservice.html">Public service and military</a></li>
+                    
+                
+                
+                    
+                        <li><a href="https://www.canada.ca/en/news.html">News</a></li>
+                    
+                
+                
+                    
+                        <li><a href="https://www.canada.ca/en/government/system/laws.html">Treaties, laws and regulations</a></li>
+                    
+                
+                
+                    
+                        <li><a href="https://www.canada.ca/en/transparency/reporting.html">Government-wide reporting</a></li>
+                    
+                
+                
+                    
+                        <li><a href="http://pm.gc.ca/eng">Prime Minister</a></li>
+                    
+                
+                
+                    
+                        <li><a href="https://www.canada.ca/en/government/system.html">How government works</a></li>
+                    
+                
+                
+                    
+                        <li><a href="http://open.canada.ca/en/">Open government</a></li>
+                    
+                
+            </ul>
+        </nav>
+        <div class="brand">
+            <div class="container">
+                <div class="row">
+                    <nav class="col-md-10 ftr-urlt-lnk">
+                        <h2 class="wb-inv">About this site</h2>
+                        <ul>
+                            
+                                
+                                    <li><a href="https://www.canada.ca/en/social.html">Social media</a></li>
+                                
+                            
+                            
+                                
+                                    <li><a href="https://www.canada.ca/en/mobile.html">Mobile applications</a></li>
+                                
+                            
+                            
+                                
+                                    <li><a href="http://www1.canada.ca/en/newsite.html">About Canada.ca</a></li>
+                                
+                            
+                            
+                                
+                                    <li><a href="https://www.canada.ca/en/transparency/terms.html">Terms and conditions</a></li>
+                                
+                            
+                            
+                                
+                                    <li><a href="https://www.canada.ca/en/transparency/privacy.html">Privacy</a></li>
+                                
+                            
+                            
+                                
+                            
+                        </ul>
+                    </nav>
+                    <div class="col-xs-6 visible-sm visible-xs tofpg">
+                        <a href="#wb-cont">Top of page <span class="glyphicon glyphicon-chevron-up"></span></a>
+                    </div>
+                    <div class="col-xs-6 col-md-2 text-right">
+                        <object type="image/svg+xml" tabindex="-1" role="img" data="/etc/designs/canada/wet-boew/assets/wmms-blk.svg" aria-label="Symbol of the Government of Canada"></object>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    
 </div>
-</div>
-</div>
-</div>
-</footer>
+        
+    
+
+	
+
+
+
+<script type="text/javascript">_satellite.pageBottom();</script>
+
+
+
+
+
+
+    
+<script type="text/javascript" src="/etc/clientlibs/granite/jquery.js"></script>
+<script type="text/javascript" src="/etc/clientlibs/granite/utils.js"></script>
+<script type="text/javascript" src="/etc/designs/canada/clientlib-publish.js"></script>
+
+
+
+
 <!--[if gte IE 9 | !IE ]><!-->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
-<script src="./wet-boew/js/wet-boew.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="/etc/designs/canada/wet-boew/js/wet-boew.min.js"></script>
 <!--<![endif]-->
+
 <!--[if lt IE 9]>
-		<script src="./wet-boew/js/ie8-wet-boew2.min.js"></script>
-		
-		<![endif]-->
-<script src="./GCWeb/js/theme.min.js"></script>
+<script src="/etc/designs/canada/wet-boew/js/ie8-wet-boew2.min.js"></script>
+<![endif]-->
+
+<script src="/etc/designs/canada/wet-boew/js/theme.min.js"></script>
 </body>
 </html>
