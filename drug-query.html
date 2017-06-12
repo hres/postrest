@@ -42,8 +42,32 @@
 			<label for="ingredient">Active ingredient:</label>
 			<input id="ingredient" type="text">
 			<br>
-			<label for="ingredient-code">Active ingredient group number</label>
+			<label for="ingredient-code">Active ingredient group number:</label>
 			<input id="ingredient-code" type="text">
+			<br>
+			<label for="class">Class:</label>
+			<select id="class">
+				<option selected="selected">Any<option>
+				<option>Disinfectant</option>
+				<option>Human</option>
+				<option>Radiopharmaceutical</option>
+				<option>Veterinary</option>
+			</select>
+			<br>
+			<label for="route">Route of administration:</label>
+			<select>
+				<option selected="selected">Any</option>
+			</select>
+			<br>
+			<label for="dosage">Dosage form:</label>
+			<select id="dosage">
+				<option selected="selected">Any</option>
+			</select>
+			<br>
+			<label for="schedule">Schedule</label>
+			<select id="schedule">
+				<option selected="selected">Any</option>
+			</select>
 		</section>
 		<hr>
 		<input type="submit" onclick="prepare()">
