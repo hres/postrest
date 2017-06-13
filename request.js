@@ -4,14 +4,14 @@ var base = "https://rest-dev.hres.ca/rest-dev/drug_product?select=*"
 
 //add to base when available
 
-//%20active_ingredient{ingredient,strength,strength_unit}
-//%20companies{company_name,suite_number,street_name,city_name,province,country,postal_code}
-//%20status{*}
-//%20therapeutic_class{*}
-//%20form{*}
-//%20route{*}
-//%20schedule{*}
-//%20veterinary_species{*}
+//,%20active_ingredient{ingredient,strength,strength_unit} -> TRUE
+//,%20companies{company_name,suite_number,street_name,city_name,province,country,postal_code} -> TRUE
+//,%20status{*} -> EXISTS/FALSE
+//,%20therapeutic_class{*} -> TRUE
+//,%20pharmaceutical_form{*} -> EXISTS/FALSE
+//,%20route{*} -> TRUE
+//,%20schedule{*} -> EXISTS/FALSE
+//,%20veterinary_species{*} -> EXISTS/FALSE
 
 function prepare() {
 
@@ -28,7 +28,7 @@ function prepare() {
 	}
 	else {
 		queryKeys.status = document.getElementById("status").value;
-		queryKeys.comapny = document.getElementById("company").value;
+		queryKeys.company = document.getElementById("company").value;
 		queryKeys.product = document.getElementById("product").value;
 		queryKeys.active = document.getElementById("active").value;
 		queryKeys.aig = document.getElementById("aig").value;
@@ -66,19 +66,20 @@ function requestForResourceSecondary(keys) {
 	var query = base;
 
 	if (keys.status != "0") {
-		query += "&status.status=ilike." + keys.status;
+		query += "&status.status=ilike.*" + keys.status "*";
 	}
 	
 	if (keys.company != "") {
-		query += "&company.company_name=ilike." + keys.comapny;
+	console.log(keys.company);
+		query += "&company.company_name=ilike.*" + keys.comapny + "*";
 	}
 	
 	if (keys.product != "") {
-		query += "&brand_name=ilike." + keys.product;
+		query += "&brand_name=ilike.*" + keys.product + "*";
 	}
 	
 	if (keys.active != "") {
-		query += "&active_ingredient.ingeredient=ilike." + keys.active;
+		query += "&active_ingredient.ingredient=ilike.*" + keys.active + "*";
 	}
 	
 	if (keys.aig != "") {
@@ -86,20 +87,22 @@ function requestForResourceSecondary(keys) {
 	}
 	
 	if (keys.drugClass != "0") {
-		query += "&class=ilike." + keys.drugClass;
+		query += "&class=ilike.*" + keys.drugClass + "*";
 	}
 	
 	if (keys.route != "0") {
-		query += "&route.route_of_administration=ilike." + keys.route;
+		query += "&route.route_of_administration=ilike.*" + keys.route + "*";
 	}
 	
 	if (keys.dosage != "0") {
-		query += "&form.pharmaceutical_form=ilike." + keys.dosage;
+		query += "&pharmaceutical_form.pharmaceutical_form=ilike.*" + keys.dosage + "*";
 	}
 	
 	if (keys.schedule != "0") {
-		query += "&schedule.schedule=ilike." + keys.schedule;
+		query += "&schedule.schedule=ilike.*" + keys.schedule + "*";
 	}
+	
+	console.log(query);
 	
 	$.get(query, function(data) {
 		console.log(data);
