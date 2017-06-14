@@ -142,7 +142,7 @@
 					 text: "Fran&ccedil;ais"
 				 }],
 				 showPreContent: true,
-				 breadcrumbs: [{title: 'Home', href: 'http://www.hc-sc.gc.ca/index-eng.php'},{title: 'Drugs &amp; Health Products', href: 'http://www.hc-sc.gc.ca/dhp-mps/index-eng.php'},{title: 'Drug Products', href: 'http://www.hc-sc.gc.ca/dhp-mps/prodpharma/index-eng.php'},{title: 'Drug Product Database', href: 'http://www.hc-sc.gc.ca/dhp-mps/prodpharma/databasdon/index-eng.php'},{title: 'Online Query'},],
+				 breadcrumbs: [{title: 'Home', href: 'http://www.hc-sc.gc.ca/index-eng.php'},{title: 'Drugs &amp; Health Products', href: 'http://www.hc-sc.gc.ca/dhp-mps/index-eng.php'},{title: 'Drug Products', href: 'http://www.hc-sc.gc.ca/dhp-mps/prodpharma/index-eng.php'},{title: 'Drug Product Database', href: 'https://www.canada.ca/en/health-canada/services/drugs-health-products/drug-products/drug-product-database.html'},{title: 'Online Query'},],
 				
 			 });
 		</script>
@@ -155,6 +155,7 @@
 		</div> 
         <!-- main content -->
 		<!--Display application error messages-->
+		<div id="queryFields">
 		<div class="mrgn-tp-md mrgn-bttm-lg"><!--Display validation error messages--></div>
 		<p class="well">Due to the fact that the information originated with an organization that is not subject to the Official Languages Act, the document may only appear in the language in which it was written. Translations of the document are the responsibility of the sponsor involved.</p>
 		<h2>Search criteria</h2>
@@ -469,6 +470,26 @@
 				</div>
 			</div>
 		</form>
+		</div>
+		
+		<div id="queryResults">
+			<table id="drugTable" class="table table-striped">
+				<caption>Online Query Results</caption>
+				<thead>
+					<tr>
+						<th scope="col" size="8">Status</th>
+						<th scope="col">DIN</th>
+						<th scope="col">Company</th>
+						<th scope="col">Product</th>
+						<th scope="col">Class</th>
+						<th scope="col">Active Ingredient</th>
+						<th scope="col">Strength</th>
+					</tr>
+				</thead>
+				<tbody id="drugTableContents">
+				</tbody>
+			</table>
+		</div>
 		
 		<!-- TESTING ONLY -->
 		<!-- <p id="test">yes</p> -->
