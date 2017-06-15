@@ -472,12 +472,13 @@
 		</form>
 		</div>
 		
-		<div id="queryResults">
+		<div id="queryResults" style="display: none">
+			<button class="btn btn-default text-center" onclick="newSearch()">New Search</button>
 			<table id="drugTable" class="table table-striped">
 				<caption>Online Query Results</caption>
 				<thead>
 					<tr>
-						<th scope="col" size="8">Status</th>
+						<th scope="col">Status</th>
 						<th scope="col">DIN</th>
 						<th scope="col">Company</th>
 						<th scope="col">Product</th>
@@ -487,8 +488,22 @@
 					</tr>
 				</thead>
 				<tbody id="drugTableContents">
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
 				</tbody>
 			</table>
+			<p id="queryMessage" style="text-align: center"></p>
+			<div style="text-align: center">
+				<button id="fetch" class="btn btn-default text-center" onclick="fetch()">Load More</button>
+			</div>
+			<button class="btn btn-default text-center" onclick="newSearch()">New Search</button>
 		</div>
 		
 		<!-- TESTING ONLY -->
