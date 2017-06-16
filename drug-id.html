@@ -157,14 +157,14 @@
 		<!--Display application error messages-->
 		
 		<button class="btn btn-default text-center" onclick="newSearch()">New Search</button>
-		
+		<br><br>
 		<div class="row">
 			<p class="col-sm-4"><strong>Current status:</strong></p>
-			<p id="status" class="col-sm-8"><strong>Marketed</strong></p>
+			<p id="status" class="col-sm-8"></p>
 		</div>
 		<div class="row">
 			<p class="col-sm-4"><strong>Current status date:</strong></p>
-			<p id="status-date" class="col-sm-8"></p>
+			<p id="statusDate" class="col-sm-8"></p>
 		</div>
 		<div class="row">
 			<p class="col-sm-4"><strong>Original market date:</strong></p>
@@ -184,7 +184,11 @@
 		</div>
 		<div class="row">
 			<p class="col-sm-4"><strong>Class:</strong></p>
-			<p id="drugClass class="col-sm-8"></p>
+			<p id="drugClass" class="col-sm-8"></p>
+		</div>
+		<div id="speciesDiv" class="row" style="display: none">
+			<p class="col-sm-4"><strong>Species:</strong></p>
+			<p id="species" class="col-sm-8"></p>
 		</div>
 		<div class="row">
 			<p class="col-sm-4"><strong>Dosage form:</strong></p>
@@ -192,7 +196,7 @@
 		</div>
 		<div class="row">
 			<p class="col-sm-4"><strong>Route of administration:</strong></p>
-			<p class="col-sm-8"></p>
+			<p id="route" class="col-sm-8"></p>
 		</div>
 		<div class="row">
 			<p class="col-sm-4"><strong>Number of active ingredients:</strong></p>
@@ -221,7 +225,7 @@
 			<table id="activeIngredientsTable" class="table table-striped">
 				<thead>
 					<tr>
-						<th scope="col" size="8">Active ingredient</th>
+						<th scope="col">Active ingredient</th>
 						<th scope="col">Strength</th>
 					</tr>
 				</thead>
