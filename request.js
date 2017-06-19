@@ -166,7 +166,7 @@ function createDrugTable(table, data) {
 			var strenghtCell = drugRow.insertCell(6);
 			
 			statusCell.innerHTML = "---";
-			dinCell.innerHTML = "<a href='./drug-id.html?product=" + obj.drug_identification_number + "'>" + obj.drug_identification_number + "</a>";
+			dinCell.innerHTML = "<a href='./drug-id.html?product=" + obj.drug_code + "'>" + obj.drug_identification_number + "</a>";
 			companyCell.innerHTML = obj.companies[0].company_name;
 			productCell.innerHTML = obj.brand_name;
 			classCell.innerHTML = obj.class;
