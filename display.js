@@ -8,6 +8,7 @@ $(document).ready(function() {
 	query = base + "&drug_code=eq." + drug_id;
 	
 	$.get(query, function(data) {
+	
 		console.log(data[0]);
 		var obj = data[0].drug_product;
 		var market_date = "N/A";
@@ -56,7 +57,7 @@ $(document).ready(function() {
 		$("#active").html(obj.number_of_ais);
 		
 		if (obj.schedule) {
-			$("schedule").html(obj.schedule[0]);
+			$("#schedule").html(obj.schedule[0]);
 		}
 		
 		if (obj.therapeutic_class) {
@@ -83,5 +84,6 @@ $(document).ready(function() {
 });
 
 function newSearch() {
-	window.location = "./drug-query-en.html";
+
+	window.location = "./drug-query3.html";
 }
