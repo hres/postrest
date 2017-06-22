@@ -39,17 +39,36 @@ function requestForResource(search) {
 		}
 	}
 	
-	query += "&order=drug_code";
+	//query += "&order=drug_product";
+	query += "&order=drug_product->>brand_name";
 	
 	//console.log(query);
 	
-	$.get(query, function(data) {
-		createDrugTable(drugTable, data);
-	}, "json");
+	$.ajax({
+		url: query,
+		method: "GET",
+		beforeSend: function(xhr) {
+			var low = (page * items);
+			var high = ((page + 1) * items) - 1;
+			
+			var range = low + "-" + high;
+			
+			xhr.setRequestHeader('Range-Unit', 'items');
+			xhr.setRequestHeader('Range', range);
+			xhr.setRequestHeader('Prefer', 'count=exact');
+		},
+		success: function(data, status, xhr) {
+			var content = xhr.getResponseHeader('Content-Range');
+			createDrugTable(drugTable, data, content);
+		}
+	});
 }
 
-function createDrugTable(table, data) {
+function createDrugTable(table, data, content) {
 	
+	content = content.split("/");
+	
+	//console.log(content);
 	//console.log(data[0]);
 	
 	if (data.length == 0) {
@@ -63,15 +82,15 @@ function createDrugTable(table, data) {
 			rowIndex++;
 		}
 	
-		var dataIndex = page * items;
-		var remaining = data.length - dataIndex;
+		var dataIndex = 0;
+		var remaining = content[1] - (page * items);
 		var maxDataIndex = 0;
 		
 		if (remaining < items) {
-			maxDataIndex = dataIndex + remaining;
+			maxDataIndex = remaining;
 		}
 		else {
-			maxDataIndex = dataIndex + items;
+			maxDataIndex = items;
 		}
 	
 		for (dataIndex; dataIndex < maxDataIndex; dataIndex++) {
@@ -139,7 +158,22 @@ function fetch() {
 	
 	var drugTable = document.getElementById("drugTable");
 	
-	$.get(query, function(data) {
-		createDrugTable(drugTable, data);
-	}, "json");
+	$.ajax({
+		url: query,
+		method: "GET",
+		beforeSend: function(xhr) {
+			var low = (page * items);
+			var high = ((page + 1) * items) - 1;
+			
+			var range = low + "-" + high;
+			
+			xhr.setRequestHeader('Range-Unit', 'items');
+			xhr.setRequestHeader('Range', range);
+			xhr.setRequestHeader('Prefer', 'count=exact');
+		},
+		success: function(data, status, xhr) {
+			var content = xhr.getResponseHeader('Content-Range');
+			createDrugTable(drugTable, data, content);
+		}
+	});
 }
