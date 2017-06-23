@@ -11,19 +11,12 @@ function newSearch() {
 	window.scrollTo(0,0);
 }
 
-function validate() {
-
-	return true;
-}
-
 function prepare() {
 
-	if (validate()) {
-		var input = document.getElementById("search").value;
-		var search = input.split(" ");
+	var input = document.getElementById("search").value;
+	var search = input.split(" ");
 		
-		requestForResource(search);
-	}
+	requestForResource(search);
 }
 
 function requestForResource(search) {
@@ -103,7 +96,7 @@ function createDrugTable(table, data, content) {
 			var statusCell = drugRow.insertCell(0);
 			var dinCell = drugRow.insertCell(1);
 			var companyCell = drugRow.insertCell(2);
-			var productCell = drugRow.insertCell(3)
+			var productCell = drugRow.insertCell(3);
 			var classCell = drugRow.insertCell(4);
 			var activeCell = drugRow.insertCell(5);
 			var strenghtCell = drugRow.insertCell(6);
