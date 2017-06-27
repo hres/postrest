@@ -15,7 +15,17 @@ function prepare() {
 
 	var input = document.getElementById("search").value;
 	var search = input.split(" ");
+	var illegal = ["of", "&", "and", "?", "!", "or"];
+	
+	for(var x = 0; x < illegal.length; x++) {
 		
+		var i = $.inArray(illegal[x], search);
+		
+		if(i > -1) {
+			search.splice(i, 1);
+		}
+	}
+	
 	requestForResource(search);
 }
 
@@ -28,14 +38,16 @@ function requestForResource(search) {
 	if(search[0] != "") {
 		for(var x = 0; x < search.length; x++) {
 		
-			query += "&search=@@." + search[x];
+			if(search[x].indexOf("(") == -1 && search[x].indexOf(")") == -1) {
+				query += "&search=@@." + search[x];
+			}
 		}
 	}
 	
 	//query += "&order=drug_product";
 	query += "&order=drug_product->>brand_name";
 	
-	//console.log(query);
+	console.log(query);
 	
 	$.ajax({
 		url: query,

@@ -173,26 +173,28 @@
 							selector: 'input[name="search"]',
 							minChars: 2,
 							source: function(term, suggest){
-							term = term.toLowerCase();
-							var query = "https://rest-dev.hres.ca/rest-dev/active_ingredient?select=ingredient&ingredient=ilike.*" + term + "*&limit=10";
-							$.get(query, function(data) {
-								console.log(data[0]);
-								var choices = $.map(data, function(obj) { return obj.ingredient } );
-								console.log(choices);
-								var matches = [];
-								for (i=0; i<choices.length; i++) {
-									if (~choices[i].toLowerCase().indexOf(term)) {
-										var keyword = choices[i];
-										if(keyword.indexOf("(") !== -1) {
-											keyword = keyword.substring(0, keyword.indexOf("(") - 1);
-										}
-										if ($.inArray(keyword.toLowerCase(), matches) == -1) {
-											matches.push(keyword.toLowerCase()); 
+								term = term.toLowerCase();
+								var query = "https://rest-dev.hres.ca/rest-dev/dpd_search?or=(or(brand_name.ilike." + term + "*,company_name.ilike." + term + "*),ingredient.ilike." + term + "*)&limit=20";
+								$.get(query, function(data) {
+									console.log(data[0]);
+									var choices = $.map(data, function(obj) {
+										return [obj.ingredient + " (ingredient)", obj.company_name + " (company)", obj.brand_name + " (brand)"] 
+									});
+									console.log(choices);
+									var matches = [];
+									for (i=0; i<choices.length; i++) {
+										if (~choices[i].toLowerCase().indexOf(term)) {
+											var keyword = choices[i];
+											
+											//deal with cases such as brackets and mcneil consumer division pfizer consumer division too long??
+											
+											if ($.inArray(keyword.toLowerCase(), matches) == -1) {
+												matches.push(keyword.toLowerCase()); 
+											}
 										}
 									}
-								}
-								suggest(matches);
-							});
+									suggest(matches);
+								});
 							}
 						});
 					</script>
