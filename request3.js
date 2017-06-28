@@ -15,7 +15,7 @@ function prepare() {
 
 	var input = document.getElementById("search").value;
 	var search = input.split(" ");
-	var illegal = ["of", "&", "and", "?", "!", "or"];
+	var illegal = ["of", "&", "and", "?", "!", "or", "+"];
 	
 	for(var x = 0; x < illegal.length; x++) {
 		
